@@ -1,0 +1,51 @@
+.main {
+  padding: 1rem 2rem;
+  min-height: inherit;
+  display: grid;
+  gap: 2rem;
+  max-width: 980px;
+  margin-inline: auto;
+  align-items: baseline;
+}
+
+.register__wrapper {
+  display: grid;
+  gap: 1.2rem;
+  align-content: flex-start;
+}
+
+.form__item {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.form_items_desc {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.form__input {
+  border: none;
+  border-radius: 0.5rem;
+  background: #1f2732;
+  padding: 1.2rem 1rem;
+  outline-color: #d33434;
+  color: #f5f5f5;
+  max-width: 100%;
+  width: 100%;
+}
+
+.has__account {
+  display: flex;
+}
+.has__account p a {
+  display: inline !important;
+  padding: 0 !important;
+}
+
+@media screen and (min-width: 768px) {
+  .register__wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+}

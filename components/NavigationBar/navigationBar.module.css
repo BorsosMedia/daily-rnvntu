@@ -1,0 +1,8 @@
+.nav__link {
+  padding: initial;
+  max-width: initial;
+  display: grid;
+  place-content: center;
+  height: 100%;
+  width: auto;
+}

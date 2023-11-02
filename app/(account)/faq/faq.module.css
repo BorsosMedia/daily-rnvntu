@@ -1,0 +1,32 @@
+.main {
+  padding: 1rem 2rem;
+  display: grid;
+  position: relative;
+  background: url("../../../public/assets/Logo-Opacity.png");
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: inherit;
+  align-items: baseline;
+}
+
+.faq_container {
+  margin-top: 2.25rem;
+  margin-bottom: 2.25rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.faq_item {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    background-size: 500px;
+    background-position: center;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+}
