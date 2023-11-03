@@ -24,11 +24,6 @@ export default function Whiteboard({
   const router = useRouter();
   const routinesCollectionRef = collection(db, "routines");
   const [routineDate, setRoutineDate] = useState("");
-  const [routine, setRoutine] = useState({
-    isDraft: true,
-    publishDate: "",
-    outputData: {},
-  });
   const [editor, setEditor] = useState("");
 
   const initEditor = (previousData) => {
@@ -60,16 +55,6 @@ export default function Whiteboard({
     }
   };
 
-  useEffect(() => {
-    editor === "" &&
-      (async function () {
-        await getRoutine().then((previousData) => {
-          setEditor(() => initEditor(previousData.outputData));
-        });
-      })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const getRoutine = async () => {
     try {
       const data = await getDocs(routinesCollectionRef);
@@ -83,13 +68,21 @@ export default function Whiteboard({
           return null;
         })
         .filter((doc) => typeof doc !== "undefined");
-      setRoutine(filteredData[0]);
       setRoutineDate(filteredData[0].publishDate);
       return filteredData[0];
     } catch (error) {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    editor === "" &&
+      (async function () {
+        await getRoutine().then((previousData) => {
+          setEditor(() => initEditor(previousData.outputData));
+        });
+      })();
+  }, []);
 
   const handleSaveDraft = async (event) => {
     event.preventDefault();
@@ -113,7 +106,6 @@ export default function Whiteboard({
           publishDate: routineDate,
           outputData,
         };
-        setRoutine(newDraft);
         await updateDoc(doc(routinesCollectionRef, id), newDraft).then(() => {
           toast.success("Draft saved!", {
             position: "top-right",
@@ -155,7 +147,6 @@ export default function Whiteboard({
           publishDate: routineDate,
           outputData,
         };
-        setRoutine(newDraft);
         await updateDoc(doc(routinesCollectionRef, id), newDraft).then(() => {
           toast.success("Draft saved!", {
             position: "top-right",
@@ -196,7 +187,6 @@ export default function Whiteboard({
           publishDate: routineDate,
           outputData,
         };
-        setRoutine(newRoutine);
         await updateDoc(doc(routinesCollectionRef, id), newRoutine).then(() => {
           toast.success("Routine updated!", {
             position: "top-right",

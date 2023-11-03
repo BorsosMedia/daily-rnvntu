@@ -23,11 +23,6 @@ export default function Whiteboard({
   const router = useRouter();
   const routinesCollectionRef = collection(db, "routines");
   const [routineDate, setRoutineDate] = useState("");
-  const [routine, setRoutine] = useState({
-    isDraft: true,
-    publishDate: "",
-    outputData: {},
-  });
   const [editor, setEditor] = useState("");
 
   const initEditor = () => {
@@ -84,7 +79,6 @@ export default function Whiteboard({
           publishDate: routineDate,
           outputData,
         };
-        setRoutine(newDraft);
         await addDoc(routinesCollectionRef, newDraft).then(() => {
           toast.success("Draft saved!", {
             position: "top-right",
@@ -126,7 +120,6 @@ export default function Whiteboard({
           publishDate: routineDate,
           outputData,
         };
-        setRoutine(newDraft);
         await addDoc(routinesCollectionRef, newDraft).then((docRef) => {
           toast.success("Draft saved!", {
             position: "top-right",
@@ -168,7 +161,6 @@ export default function Whiteboard({
           publishDate: routineDate,
           outputData,
         };
-        setRoutine(newRoutine);
         await addDoc(routinesCollectionRef, newRoutine).then(() => {
           toast.success("Routine created!", {
             position: "top-right",

@@ -2,78 +2,34 @@
 
 import { useEffect, useState } from "react";
 
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaChevronLeft, FaTrash } from "react-icons/fa";
-import { toast } from "react-toastify";
 
 import styles from "./dashboard.module.css";
-import { db, initFirebase } from "../../lib/utils/firebase";
+import useCheckAuth from "../../hooks/useCheckAuth";
+import { deleteRoutine, getRoutineList } from "../../lib/utils/routines";
 
 export default function Dashboard() {
-  const app = initFirebase();
-  const auth = getAuth(app);
-  const router = useRouter();
+  const isAdmin = useCheckAuth();
   const [routines, setRoutines] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const router = useRouter();
 
-  const routinesCollectionRef = collection(db, "routines");
+  const getRoutines = async () => {
+    setRoutines(await getRoutineList());
+  };
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        if (auth.currentUser?.uid === process.env.NEXT_PUBLIC_SUPPORT_USER) {
-          setIsAdmin(true);
-          getRoutineList();
-        } else {
-          router.push("/daily-routine");
-        }
-      } else {
-        router.push("/login");
-      }
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    getRoutines();
   }, []);
-
-  const getRoutineList = async () => {
-    try {
-      const data = await getDocs(routinesCollectionRef);
-      const filteredData = data.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setRoutines(
-        filteredData.sort((a, b) => (a.publishDate > b.publishDate ? -1 : 1))
-      );
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   const handleUpdate = (id) => {
     router.push(`/dashboard/editor/${id}`);
   };
 
   const handleDelete = async (id) => {
-    try {
-      await deleteDoc(doc(routinesCollectionRef, id)).then(() => {
-        toast.success("Routine deleted successfully!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-      });
-      getRoutineList();
-    } catch (error) {
-      console.error(error);
-    }
+    await deleteRoutine(id);
+    getRoutines();
   };
 
   return (

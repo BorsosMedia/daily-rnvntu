@@ -10,18 +10,6 @@
   align-items: baseline;
 }
 
-.faq_container {
-  margin-top: 2.25rem;
-  margin-bottom: 2.25rem;
-  display: grid;
-  gap: 1.5rem;
-}
-
-.faq_item {
-  display: grid;
-  gap: 0.75rem;
-}
-
 @media screen and (min-width: 768px) {
   .main {
     background-size: 500px;
