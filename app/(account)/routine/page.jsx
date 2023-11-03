@@ -1,19 +1,23 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import { useState, useEffect } from "react";
-import { initFirebase, db } from "@/lib/utils/firebase";
+
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useRouter } from "next/navigation";
+import { getDocs, collection } from "firebase/firestore";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./routine.module.css";
-import Logo from "../../../public/assets/Logo.png";
-import { getPremiumStatus } from "@/lib/utils/getPremiumStatus";
-import NavigationBar from "@/components/NavigationBar/NavigationBar";
+import { useRouter } from "next/navigation";
 import { BsQuestionCircleFill } from "react-icons/bs";
-import { getRoutineDisplayDate, getEditorDate } from "@/lib/utils/getDates";
-import { getDocs, collection } from "firebase/firestore";
+
+import styles from "./routine.module.css";
+import NavigationBar from "../../../components/NavigationBar/NavigationBar";
+import { initFirebase, db } from "../../../lib/utils/firebase";
+import {
+  getRoutineDisplayDate,
+  getEditorDate,
+} from "../../../lib/utils/getDates";
+import { getPremiumStatus } from "../../../lib/utils/getPremiumStatus";
+import Logo from "../../../public/assets/Logo.png";
 
 export default function DailyRoutine() {
   const app = initFirebase();
@@ -47,7 +51,6 @@ export default function DailyRoutine() {
       }
     });
     getRoutine();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [app, auth, router]);
 
   const getRoutine = async () => {
@@ -184,10 +187,10 @@ export default function DailyRoutine() {
                   <strong>Dead Stop Hanging Leg Raises</strong>
                 </li>
                 <p className="paragraph paragraph--white">
-                  Aim for 25 Reps. If you are unable to perform this, that's
-                  okay. Continue to do so every week until you eventually are.
-                  Just do 1 set of this to all out failure focusing on form and
-                  the cues I gave you above.
+                  Aim for 25 Reps. If you are unable to perform this,
+                  that&apos;s okay. Continue to do so every week until you
+                  eventually are. Just do 1 set of this to all out failure
+                  focusing on form and the cues I gave you above.
                 </p>
                 <li className="paragraph paragraph--white">
                   <strong>Standing Rope Crunch</strong>
@@ -206,7 +209,7 @@ export default function DailyRoutine() {
                 </p>
               </ul>
               <p className="paragraph paragraph--white">
-                *You can train abs as often as you'd like. I suggest 1-2x a
+                *You can train abs as often as you&apos;d like. I suggest 1-2x a
                 week.
               </p>
             </div>
@@ -244,16 +247,16 @@ export default function DailyRoutine() {
                 What does it mean to train with Furious Intensity?
               </h4>
               <p className="paragraph paragraph--white">
-                It's like going to war as soon as you step into the gym. Nothing
-                else should be on your mind except preforming every rep to the
-                best of your abilities at maximum intensity.
+                It&apos;s like going to war as soon as you step into the gym.
+                Nothing else should be on your mind except preforming every rep
+                to the best of your abilities at maximum intensity.
               </p>
             </div>
             <div className={styles.faq_item}>
               <h4 className="heading">What if I miss a workout?</h4>
               <p className="paragraph paragraph--white">
-                Don't stress, keep following the daily workouts as planned.
-                Potentially use one of the program's rest days to catch up.
+                Don&apos;t stress, keep following the daily workouts as planned.
+                Potentially use one of the program&apos;s rest days to catch up.
               </p>
             </div>
             <div className={styles.faq_item}>

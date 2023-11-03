@@ -1,13 +1,14 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import styles from "./faq.module.css";
-import NavigationBar from "@/components/NavigationBar/NavigationBar";
-import { initFirebase } from "@/lib/utils/firebase";
+import { useState, useEffect } from "react";
+
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
-import { getPremiumStatus } from "@/lib/utils/getPremiumStatus";
+
+import styles from "./faq.module.css";
+import NavigationBar from "../../../components/NavigationBar/NavigationBar";
+import { initFirebase } from "../../../lib/utils/firebase";
+import { getPremiumStatus } from "../../../lib/utils/getPremiumStatus";
 
 export default function FAQ() {
   const app = initFirebase();
@@ -74,16 +75,16 @@ export default function FAQ() {
                 What does it mean to train with Furious Intensity?
               </h4>
               <p className="paragraph paragraph--white">
-                It's like going to war as soon as you step into the gym. Nothing
-                else should be on your mind except preforming every rep to the
-                best of your abilities at maximum intensity.
+                It&apos;s like going to war as soon as you step into the gym.
+                Nothing else should be on your mind except preforming every rep
+                to the best of your abilities at maximum intensity.
               </p>
             </div>
             <div className={styles.faq_item}>
               <h4 className="heading">What if I miss a workout?</h4>
               <p className="paragraph paragraph--white">
-                Don't stress, keep following the daily workouts as planned.
-                Potentially use one of the program's rest days to catch up.
+                Don&apos;t stress, keep following the daily workouts as planned.
+                Potentially use one of the program&apos;s rest days to catch up.
               </p>
             </div>
             <div className={styles.faq_item}>

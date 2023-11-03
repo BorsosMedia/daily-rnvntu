@@ -1,14 +1,16 @@
 "use client";
 
-import styles from "./dashboard.module.css";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaChevronLeft, FaTrash } from "react-icons/fa";
-import { db, initFirebase } from "@/lib/utils/firebase";
-import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
+
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { FaChevronLeft, FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
+
+import styles from "./dashboard.module.css";
+import { db, initFirebase } from "../../lib/utils/firebase";
 
 export default function Dashboard() {
   const app = initFirebase();

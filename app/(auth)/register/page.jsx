@@ -1,170 +1,43 @@
 "use client";
-import styles from "./register.module.css";
-import Link from "next/link";
-import { initFirebase } from "@/lib/utils/firebase";
-import { useRouter } from "next/navigation";
-import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
-  browserSessionPersistence,
-  setPersistence,
-  onAuthStateChanged,
-} from "firebase/auth";
-import FunctionalButton from "@/components/FunctionalButton/FunctionalButton";
-import { useState, useEffect } from "react";
-import NavigationBar from "@/components/NavigationBar/NavigationBar";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { getPremiumStatus } from "@/lib/utils/getPremiumStatus";
-import { toast } from "react-toastify";
-import { z } from "zod";
-import { useForm } from "react-hook-form";
+
+import { useState } from "react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+
+import styles from "./register.module.css";
+import FunctionalButton from "../../../components/FunctionalButton/FunctionalButton";
+import NavigationBar from "../../../components/NavigationBar/NavigationBar";
+import useCheckAuth from "../../../hooks/useCheckAuth";
+import {
+  googleSignUp,
+  emailAndPasswordSignUp,
+} from "../../../lib/utils/register";
+import { SignUpSchema } from "../../../lib/utils/schemas/SignUpSchema";
 
 export default function Register() {
+  useCheckAuth();
   const router = useRouter();
-  const app = initFirebase();
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
-  const [PasswordVisibility, setPasswordVisibility] = useState("password");
-  const [ConfirmPasswordVisibility, setConfirmPasswordVisibility] =
-    useState("password");
+  const [passwordVisibility, setPasswordVisibility] = useState("password");
 
-  function HandlePasswordVisibility() {
+  const handlePasswordVisibility = () => {
     setPasswordVisibility(
-      PasswordVisibility === "password" ? "text" : "password"
+      passwordVisibility === "password" ? "text" : "password"
     );
-  }
-
-  function HandleConfirmPasswordVisibility() {
-    setConfirmPasswordVisibility(
-      ConfirmPasswordVisibility === "password" ? "text" : "password"
-    );
-  }
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        if (auth.currentUser?.uid === process.env.NEXT_PUBLIC_SUPPORT_USER) {
-          router.push("/daily-routine");
-        } else {
-          const checkPremium = async () => {
-            const newPremiumStatus = await getPremiumStatus(app);
-            if (!newPremiumStatus) {
-              router.push("/plans");
-            } else {
-              router.push("/daily-routine");
-            }
-          };
-          checkPremium();
-        }
-      }
-    });
-  }, [app, auth, router]);
-
-  const [credentials, setCredentials] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-
-  const handleChange = (event) => {
-    setCredentials({
-      ...credentials,
-      [event.target.name]: event.target.value,
-    });
   };
 
   const signUpGoogle = async () => {
-    await setPersistence(auth, browserSessionPersistence);
-    const result = await signInWithPopup(auth, provider);
-    const user = result.user;
-    if (user) {
-      goToAccount();
-    }
+    const user = await googleSignUp();
+    if (user) router.push("/routine");
   };
 
   const signUpEmail = async (data) => {
-    await setPersistence(auth, browserSessionPersistence);
-    const result = await createUserWithEmailAndPassword(
-      auth,
-      data.email,
-      data.password
-    ).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      if (errorCode === "auth/email-already-in-use") {
-        toast.error("Email already in use", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-      } else if (errorCode === "auth/invalid-email") {
-        toast.error("The email address is not valid", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-      } else if (errorCode === "auth/weak-password") {
-        toast.error("Please, choose a stronger password", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-      } else {
-        toast.error(errorMessage, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-      }
-    });
-
-    const user = result?.user;
-    if (user) {
-      goToAccount();
-    }
+    const user = await emailAndPasswordSignUp(data);
+    if (user) router.push("/routine");
   };
-
-  const goToAccount = () => {
-    router.push("/daily-routine");
-  };
-
-  const SignUpSchema = z
-    .object({
-      email: z.string().email().min(1),
-      password: z
-        .string()
-        .min(8, { message: "Password must contain at least 8 characters" }),
-      confirmPassword: z
-        .string()
-        .min(8, { message: "Password must contain at least 8 characters" }),
-    })
-    .refine((data) => data.password === data.confirmPassword, {
-      message: "Passwords do not match",
-      path: ["confirmPassword"],
-    });
 
   const {
     register,
@@ -193,7 +66,6 @@ export default function Register() {
               id="email"
               name="email"
               className={styles.form__input}
-              onChange={handleChange}
               required
               {...register("email")}
             />
@@ -210,25 +82,24 @@ export default function Register() {
                 Must have at least 8 characters
               </span>
             </div>
-            <div className={`${styles.password_field}`}>
-              {PasswordVisibility === "password" ? (
+            <div className={styles.password_field}>
+              {passwordVisibility === "password" ? (
                 <AiFillEyeInvisible
-                  onClick={HandlePasswordVisibility}
+                  onClick={handlePasswordVisibility}
                   className={`${styles.password_visibility} icon--sm`}
                 />
               ) : (
                 <AiFillEye
-                  onClick={HandlePasswordVisibility}
+                  onClick={handlePasswordVisibility}
                   className={`${styles.password_visibility} icon--sm`}
                 />
               )}
               <input
-                type={PasswordVisibility}
+                type={passwordVisibility}
                 placeholder="********"
                 id="password"
                 name="password"
                 className={`${styles.form__input} ${styles.password__input}`}
-                onChange={handleChange}
                 required
                 {...register("password")}
               ></input>
@@ -246,25 +117,24 @@ export default function Register() {
                 Confirm Password
               </label>
             </div>
-            <div className={`${styles.password_field}`}>
-              {ConfirmPasswordVisibility === "password" ? (
+            <div className={styles.password_field}>
+              {passwordVisibility === "password" ? (
                 <AiFillEyeInvisible
-                  onClick={HandleConfirmPasswordVisibility}
+                  onClick={handlePasswordVisibility}
                   className={`${styles.password_visibility} icon--sm`}
                 />
               ) : (
                 <AiFillEye
-                  onClick={HandleConfirmPasswordVisibility}
+                  onClick={handlePasswordVisibility}
                   className={`${styles.password_visibility} icon--sm`}
                 />
               )}
               <input
-                type={ConfirmPasswordVisibility}
+                type={passwordVisibility}
                 placeholder="********"
                 id="confirmPassword"
                 name="confirmPassword"
                 className={`${styles.form__input} ${styles.password__input}`}
-                onChange={handleChange}
                 required
                 {...register("confirmPassword")}
               ></input>

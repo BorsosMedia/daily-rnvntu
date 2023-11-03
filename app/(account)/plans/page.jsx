@@ -1,13 +1,18 @@
 "use client";
-import styles from "./plans.module.css";
-import { BiRightArrowAlt } from "react-icons/bi";
-import NavigationBar from "@/components/NavigationBar/NavigationBar";
-import { initFirebase } from "@/lib/utils/firebase";
+import { useEffect, useState } from "react";
+
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { getPremiumStatus } from "@/lib/utils/getPremiumStatus";
-import { getCheckoutUrl, freeTrialCheck } from "@/lib/utils/stripePayment";
+import { BiRightArrowAlt } from "react-icons/bi";
+
+import styles from "./plans.module.css";
+import NavigationBar from "../../../components/NavigationBar/NavigationBar";
+import { initFirebase } from "../../../lib/utils/firebase";
+import { getPremiumStatus } from "../../../lib/utils/getPremiumStatus";
+import {
+  getCheckoutUrl,
+  freeTrialCheck,
+} from "../../../lib/utils/stripePayment";
 
 export default function Plans() {
   const app = initFirebase();
@@ -50,7 +55,6 @@ export default function Plans() {
           <button
             className={styles.button_container}
             onClick={async () => {
-              // router.push("/purchase?plan=monthly");
               const checkoutUrl = await getCheckoutUrl(
                 app,
                 process.env.NEXT_PUBLIC_STRIPE_MONTHLY_PRICE_ID

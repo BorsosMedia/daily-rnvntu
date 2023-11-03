@@ -1,15 +1,17 @@
 "use client";
-import styles from "./purchase.module.css";
+import { useState, useEffect } from "react";
+
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useRouter } from "next/navigation";
 import { FaStripe } from "react-icons/fa";
 import { ImPaypal } from "react-icons/im";
-import FunctionalButton from "@/components/FunctionalButton/FunctionalButton";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { initFirebase } from "@/lib/utils/firebase";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getPremiumStatus } from "@/lib/utils/getPremiumStatus";
-import { getCheckoutUrl } from "@/lib/utils/stripePayment";
-import NavigationBar from "@/components/NavigationBar/NavigationBar";
+
+import styles from "./purchase.module.css";
+import FunctionalButton from "../../../components/FunctionalButton/FunctionalButton";
+import NavigationBar from "../../../components/NavigationBar/NavigationBar";
+import { initFirebase } from "../../../lib/utils/firebase";
+import { getPremiumStatus } from "../../../lib/utils/getPremiumStatus";
+import { getCheckoutUrl } from "../../../lib/utils/stripePayment";
 
 export default function Purchase() {
   const app = initFirebase();

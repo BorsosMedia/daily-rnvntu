@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+
 import GoogleLogo from "../../public/assets/google-logo.svg";
 
 function FunctionalButton({ Text, Primary, Icon, cb }) {

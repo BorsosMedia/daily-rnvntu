@@ -1,43 +1,14 @@
 "use client";
 
-import styles from "./page.module.css";
 import Image from "next/image";
+
+import styles from "./page.module.css";
+import NavigationButton from "../components/NavigationButton/NavigationButton";
+import useCheckAuth from "../hooks/useCheckAuth";
 import logo from "../public/assets/Logo.png";
-import NavigationButton from "@/components/NavigationButton/NavigationButton";
-import { initFirebase } from "@/lib/utils/firebase";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
-import { getPremiumStatus } from "@/lib/utils/getPremiumStatus";
 
 export default function Home() {
-  const app = initFirebase();
-  const auth = getAuth(app);
-  const router = useRouter();
-  const [IsPageLoaded, setIsPageLoaded] = useState(false);
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      console.log(user);
-      if (user) {
-        if (auth.currentUser?.uid === process.env.NEXT_PUBLIC_SUPPORT_USER) {
-          router.push("/daily-routine");
-        } else {
-          const checkPremium = async () => {
-            const newPremiumStatus = await getPremiumStatus(app);
-            if (!newPremiumStatus) {
-              router.push("/plans");
-            } else {
-              router.push("/daily-routine");
-            }
-          };
-          checkPremium();
-        }
-      } else {
-        setIsPageLoaded(true);
-      }
-    });
-  }, [app, auth, router]);
+  useCheckAuth();
 
   return (
     <main className={styles.main}>
@@ -51,14 +22,7 @@ export default function Home() {
             Hardcore training has never been easier
           </p>
           <h1 className="heading FI-heading-1 text-center">
-            FEROCIOUS{" "}
-            <span
-              className={
-                IsPageLoaded ? "primary-accent setAnimation" : "primary-accent"
-              }
-            >
-              INTENSITY
-            </span>
+            DAILY <span className="primary-accent setAnimation">RNVNTU</span>
           </h1>
           <h5 className="heading">A very srs daily fitness program</h5>
         </div>
@@ -69,7 +33,7 @@ export default function Home() {
             Primary={true}
           />
           <NavigationButton Text={"Login"} Href={"/login"} />
-          <span className="text--body">EFFER COACHING</span>
+          <span className="text--body">DAILY RNVNTU</span>
         </div>
       </div>
     </main>

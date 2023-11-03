@@ -1,16 +1,18 @@
 "use client";
 
-import Link from "next/link";
+import { useEffect, useState } from "react";
+
 import EditorJS from "@editorjs/editorjs";
 import Header from "@editorjs/header";
 import List from "@editorjs/list";
-import { useEffect, useState } from "react";
-import { FaChevronLeft } from "react-icons/fa";
-import { getEditorDate } from "@/lib/utils/getDates";
 import { collection, updateDoc, doc, getDocs } from "firebase/firestore";
-import { db } from "@/lib/utils/firebase";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { FaChevronLeft } from "react-icons/fa";
 import { toast } from "react-toastify";
+
+import { db } from "../../lib/utils/firebase";
+import { getEditorDate } from "../../lib/utils/getDates";
 
 export default function Whiteboard({
   formItem,

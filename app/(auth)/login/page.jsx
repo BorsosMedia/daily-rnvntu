@@ -1,65 +1,33 @@
 "use client";
 
-import NavigationBar from "@/components/NavigationBar/NavigationBar";
-import styles from "./login.module.css";
+import { useState } from "react";
+
 import Link from "next/link";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { initFirebase } from "@/lib/utils/firebase";
 import { useRouter } from "next/navigation";
-import {
-  getAuth,
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  setPersistence,
-  browserSessionPersistence,
-  browserLocalPersistence,
-  onAuthStateChanged,
-} from "firebase/auth";
-import FunctionalButton from "@/components/FunctionalButton/FunctionalButton";
-import { useState, useEffect } from "react";
-import { getPremiumStatus } from "@/lib/utils/getPremiumStatus";
-import { toast } from "react-toastify";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+
+import styles from "./login.module.css";
+import FunctionalButton from "../../../components/FunctionalButton/FunctionalButton";
+import NavigationBar from "../../../components/NavigationBar/NavigationBar";
+import useCheckAuth from "../../../hooks/useCheckAuth";
+import { googleLogin, emailAndPasswordLogin } from "../../../lib/utils/login";
 
 export default function Login() {
+  useCheckAuth();
   const router = useRouter();
-  const app = initFirebase();
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        if (auth.currentUser?.uid === process.env.NEXT_PUBLIC_SUPPORT_USER) {
-          router.push("/daily-routine");
-        } else {
-          const checkPremium = async () => {
-            const newPremiumStatus = await getPremiumStatus(app);
-            if (!newPremiumStatus) {
-              router.push("/plans");
-            } else {
-              router.push("/daily-routine");
-            }
-          };
-          checkPremium();
-        }
-      }
-    });
-  }, [app, auth, router]);
-
+  const [session, setSession] = useState(true);
+  const [passwordVisibility, setPasswordVisibility] = useState("password");
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
 
-  const [session, setSession] = useState(true);
-  const [PasswordVisibility, setPasswordVisibility] = useState("password");
-
-  function HandlePasswordVisibility() {
+  const handlePasswordVisibility = () => {
     setPasswordVisibility(
-      PasswordVisibility === "password" ? "text" : "password"
+      passwordVisibility === "password" ? "text" : "password"
     );
-  }
+  };
 
   const handleChange = (event) => {
     setCredentials({
@@ -69,97 +37,14 @@ export default function Login() {
   };
 
   const signInGoogle = async () => {
-    const sessionPreference = session
-      ? browserSessionPersistence
-      : browserLocalPersistence;
-    await setPersistence(getAuth(), sessionPreference).then(async () => {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-      if (user) {
-        goToAccount();
-      }
-    });
+    const user = await googleLogin(session);
+    if (user) router.push("/routine");
   };
 
-  const signInEmail = async (e) => {
-    e.preventDefault();
-    const sessionPreference = session
-      ? browserSessionPersistence
-      : browserLocalPersistence;
-    await setPersistence(auth, sessionPreference).then(async () => {
-      const result = await signInWithEmailAndPassword(
-        auth,
-        credentials.email,
-        credentials.password
-      ).catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        if (errorCode === "auth/invalid-email") {
-          toast.error("The email address is not valid", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
-        } else if (errorCode === "auth/user-not-found") {
-          toast.error("The user doesn't exist", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
-        } else if (errorCode === "auth/wrong-password") {
-          toast.error("The password is incorrect", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
-        } else if (errorCode === "auth/missing-password") {
-          toast.error("Please, input your password", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
-        } else {
-          toast.error(errorMessage, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
-        }
-      });
-      const user = result?.user;
-      if (user) {
-        goToAccount();
-      }
-    });
-  };
-
-  const goToAccount = () => {
-    router.push("/daily-routine");
+  const signInEmail = async (event) => {
+    event.preventDefault();
+    const user = await emailAndPasswordLogin(session, credentials);
+    if (user) router.push("/routine");
   };
 
   return (
@@ -191,25 +76,25 @@ export default function Login() {
             <label htmlFor="password" className="paragraph label--white">
               Password
             </label>
-            <div className={`${styles.password_field}`}>
-              {PasswordVisibility === "password" ? (
+            <div className={styles.password_field}>
+              {passwordVisibility === "password" ? (
                 <AiFillEyeInvisible
-                  onClick={HandlePasswordVisibility}
+                  onClick={handlePasswordVisibility}
                   className={`${styles.password_visibility} icon--sm`}
                 />
               ) : (
                 <AiFillEye
-                  onClick={HandlePasswordVisibility}
+                  onClick={handlePasswordVisibility}
                   className={`${styles.password_visibility} icon--sm`}
                 />
               )}
               <input
-                type={PasswordVisibility}
+                type={passwordVisibility}
                 placeholder="********"
                 id="password"
                 name="password"
-                className={`${styles.form__input} ${styles.password__input}`}
                 onChange={handleChange}
+                className={`${styles.form__input} ${styles.password__input}`}
                 required
               ></input>
             </div>

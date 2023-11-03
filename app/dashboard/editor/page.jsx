@@ -1,15 +1,17 @@
 "use client";
 
-import styles from "./editor.module.css";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { initFirebase } from "@/lib/utilsfirebase";
+
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
+
+import styles from "./editor.module.css";
+import { initFirebase } from "../../../lib/utils/firebase";
 
 export default function Editor() {
   const Whiteboard = dynamic(
-    () => import("../../components/Whiteboard/Whiteboard.jsx"),
+    () => import("../../../components/Whiteboard/Whiteboard.jsx"),
     { ssr: false }
   );
   const app = initFirebase();
@@ -29,7 +31,6 @@ export default function Editor() {
         router.push("/login");
       }
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

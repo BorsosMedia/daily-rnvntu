@@ -1,19 +1,20 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import styles from "./preview.module.css";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { initFirebase, db } from "@/lib/utils/firebase";
+
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { collection, getDocs } from "firebase/firestore";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../../../../public/assets/Logo.png";
-import { PiSignOutBold } from "react-icons/pi";
+import { useRouter } from "next/navigation";
 import { BsQuestionCircleFill } from "react-icons/bs";
-import { getPreviewRoutineDate } from "@/lib/utils/getDates";
-import { collection, getDocs } from "firebase/firestore";
+import { PiSignOutBold } from "react-icons/pi";
 import { toast } from "react-toastify";
+
+import styles from "./preview.module.css";
+import { initFirebase, db } from "../../../../lib/utils/firebase";
+import { getPreviewRoutineDate } from "../../../../lib/utils/getDates";
+import Logo from "../../../../public/assets/Logo.png";
 
 export default function Preview() {
   const app = initFirebase();
@@ -209,10 +210,10 @@ export default function Preview() {
                   <strong>Dead Stop Hanging Leg Raises</strong>
                 </li>
                 <p className="paragraph paragraph--white">
-                  Aim for 25 Reps. If you are unable to perform this, that's
-                  okay. Continue to do so every week until you eventually are.
-                  Just do 1 set of this to all out failure focusing on form and
-                  the cues I gave you above.
+                  Aim for 25 Reps. If you are unable to perform this,
+                  that&apos;s okay. Continue to do so every week until you
+                  eventually are. Just do 1 set of this to all out failure
+                  focusing on form and the cues I gave you above.
                 </p>
                 <li className="paragraph paragraph--white">
                   <strong>Standing Rope Crunch</strong>
@@ -231,7 +232,7 @@ export default function Preview() {
                 </p>
               </ul>
               <p className="paragraph paragraph--white">
-                *You can train abs as often as you'd like. I suggest 1-2x a
+                *You can train abs as often as you&apos;d like. I suggest 1-2x a
                 week.
               </p>
             </div>
@@ -269,16 +270,16 @@ export default function Preview() {
                 What does it mean to train with Furious Intensity?
               </h4>
               <p className="paragraph paragraph--white">
-                It's like going to war as soon as you step into the gym. Nothing
-                else should be on your mind except preforming every rep to the
-                best of your abilities at maximum intensity.
+                It&apos;s like going to war as soon as you step into the gym.
+                Nothing else should be on your mind except preforming every rep
+                to the best of your abilities at maximum intensity.
               </p>
             </div>
             <div className={styles.faq_item}>
               <h4 className="heading">What if I miss a workout?</h4>
               <p className="paragraph paragraph--white">
-                Don't stress, keep following the daily workouts as planned.
-                Potentially use one of the program's rest days to catch up.
+                Don&apos;t stress, keep following the daily workouts as planned.
+                Potentially use one of the program&apos;s rest days to catch up.
               </p>
             </div>
             <div className={styles.faq_item}>

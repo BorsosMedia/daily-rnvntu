@@ -1,15 +1,16 @@
 "use client";
-import styles from "./navigationBar.module.css";
-import { BsQuestionCircleFill } from "react-icons/bs";
+import { getAuth } from "firebase/auth";
 import Image from "next/image";
-import Logo from "../../public/assets/Logo.png";
-import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { BsQuestionCircleFill } from "react-icons/bs";
 import { FaChevronLeft } from "react-icons/fa";
 import { PiSignOutBold } from "react-icons/pi";
-import { initFirebase } from "@/lib/utils/firebase";
-import { getAuth } from "firebase/auth";
-import { getPortalUrl } from "@/lib/utils/stripePayment";
+
+import styles from "./navigationBar.module.css";
+import { initFirebase } from "../../lib/utils/firebase";
+import { getPortalUrl } from "../../lib/utils/stripePayment";
+import Logo from "../../public/assets/Logo.png";
 
 export default function NavigationBar({ LinkedTo, SignOut, IsDailyRoutine }) {
   const app = initFirebase();
@@ -51,7 +52,7 @@ export default function NavigationBar({ LinkedTo, SignOut, IsDailyRoutine }) {
         </div>
       )}
 
-      {pathname === "/daily-routine" &&
+      {pathname === "/routine" &&
         process.env.NEXT_PUBLIC_SUPPORT_USER === auth.currentUser?.uid && (
           <Link
             className="paragraph label--grey"
@@ -62,7 +63,7 @@ export default function NavigationBar({ LinkedTo, SignOut, IsDailyRoutine }) {
           </Link>
         )}
 
-      {pathname === "/daily-routine" &&
+      {pathname === "/routine" &&
         process.env.NEXT_PUBLIC_SUPPORT_USER !== auth.currentUser?.uid && (
           <button
             className="colTwo sign__out-button"
