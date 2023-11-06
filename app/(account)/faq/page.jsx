@@ -1,6 +1,5 @@
 "use client";
 
-import styles from "./faq.module.css";
 import { Faqs } from "../../../components/Faqs/Faqs";
 import NavigationBar from "../../../components/NavigationBar/NavigationBar";
 import useCheckAuth from "../../../hooks/useCheckAuth";
@@ -10,9 +9,8 @@ export default function FAQ() {
 
   return (
     isPremium && (
-      <main className={styles.main}>
+      <main className="main_faq">
         <NavigationBar signedIn={true} />
-
         <Faqs />
       </main>
     )

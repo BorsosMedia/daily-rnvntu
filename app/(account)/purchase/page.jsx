@@ -68,7 +68,7 @@ export default function Purchase() {
         >
           {inputs.map((input) => {
             return (
-              <div className={styles.form__item} key={input.name}>
+              <div className="form_item" key={input.name}>
                 <label htmlFor={input.name} className="paragraph label--white">
                   {input.label}
                 </label>
@@ -78,7 +78,7 @@ export default function Purchase() {
                   id={input.name}
                   placeholder={input.placeholder}
                   value={cardDetails[input.name]}
-                  className={styles.form__input}
+                  className="form_input"
                   onChange={handleChange}
                 />
               </div>

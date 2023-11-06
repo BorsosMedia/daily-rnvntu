@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsQuestionCircleFill } from "react-icons/bs";
 
-import styles from "./routine.module.css";
 import { CoreTraining } from "../../../components/CoreTraining/CoreTraining";
 import { Faqs } from "../../../components/Faqs/Faqs";
 import NavigationBar from "../../../components/NavigationBar/NavigationBar";
@@ -29,7 +28,7 @@ export default function DailyRoutine() {
 
   return (
     isPremium && (
-      <main className={styles.main}>
+      <main className="main_routine">
         <div className="v-align-gap-1">
           <NavigationBar signedIn={true} />
           <div className="colTwo">

@@ -102,7 +102,7 @@ h6 {
 
 p {
   margin: 0;
-  font-family: "arial-narrow", arial-narrow, Arial, Helvetica;
+  font-family: var(--main-font);
 }
 
 label {
@@ -210,7 +210,7 @@ hr {
   }
 }
 
-/* LOGIN, REGISTER AND RESET-PASSWORD */
+/* PURCHASE, LOGIN, REGISTER AND RESET-PASSWORD PAGES */
 
 .main_register_login {
   display: grid;
@@ -245,6 +245,7 @@ hr {
   background: var(--secondary-color);
   padding: 1.2rem 1rem;
   width: 100%;
+  max-width: 100%;
   color: var(--white-color);
 }
 
@@ -297,7 +298,28 @@ hr {
   }
 }
 
-/* FAQ SECTION */
+/* FAQ PAGE */
+
+.main_faq {
+  display: grid;
+  position: relative;
+  align-items: baseline;
+  background: url("../../../public/assets/Logo-Opacity.png");
+  background-position: center;
+  background-size: 90%;
+  background-repeat: no-repeat;
+  padding: 1rem 2rem;
+  min-height: inherit;
+}
+
+@media screen and (min-width: 768px) {
+  .main_faq {
+    margin: 0 auto;
+    background-position: center;
+    background-size: 500px;
+    max-width: 980px;
+  }
+}
 
 .faq_container {
   display: grid;
@@ -312,7 +334,30 @@ hr {
   gap: 0.75rem;
 }
 
-/* END OF FAQ SECTION */
+/* ROUTINE PAGE */
+
+.main_routine {
+  display: grid;
+  align-content: space-between;
+  gap: 2rem;
+  background: url("../../../public/assets/GYM\ LOGO\ MALE\ FINAL.png");
+  background-position: 500% 105%;
+  background-size: 92%;
+  background-repeat: no-repeat;
+  padding: 1rem 2rem;
+  min-height: inherit;
+}
+
+@media screen and (min-width: 768px) {
+  .main_routine {
+    margin: 0 auto;
+    background-position: 100% 130%;
+    background-size: 500px;
+    max-width: 980px;
+  }
+}
+
+/* END OF ROUTINE PAGE */
 
 .opacity-2 {
   opacity: 20%;
@@ -374,17 +419,21 @@ li,
 .primary-button.primary-button_red span {
   font-size: clamp(1rem, 2vw, 1.05rem);
 }
+
 .text--desc {
   font-size: clamp(0.875rem, 1vw, 1rem);
 }
+
 .v-align-gap-1 {
   display: grid;
   gap: 1rem;
 }
+
 .v-align-gap-005 {
   display: grid;
   gap: 0.5rem;
 }
+
 .align-center {
   display: grid;
   justify-items: center;
@@ -393,6 +442,7 @@ li,
 .text-center {
   text-align: center;
 }
+
 button,
 a.primary-button {
   display: flex;
@@ -449,7 +499,6 @@ a.primary-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   gap: 1rem;
 }
 
@@ -531,7 +580,7 @@ a.primary-button {
   display: grid;
   place-content: center;
   border: 1px solid var(--grey-color);
-  border-radius: 0.5rem;
+  border-radius: var(--button-radius);
   background-color: #1f2732;
   padding: 0.5rem;
   width: 50%;

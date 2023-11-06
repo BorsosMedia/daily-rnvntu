@@ -51,7 +51,7 @@ export default function Dashboard() {
           {routines?.map((routine) => (
             <div
               key={routine.id}
-              className={`${routine.isDraft ? styles.cardDraft : styles.card}`}
+              className={routine.isDraft ? styles.cardDraft : styles.card}
             >
               <div
                 className={`${
