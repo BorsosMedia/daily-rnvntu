@@ -1,8 +1,7 @@
-import styles from "./Faqs.module.css";
-
 export function Faqs() {
   const paragraph = "paragraph paragraph--white";
   const heading = "heading";
+  const item = "faq_item";
 
   const listItems = [
     "Day 1: CHEST + BICEPS",
@@ -16,15 +15,15 @@ export function Faqs() {
   ];
 
   return (
-    <article className={`${styles.faq_container} sm__lg_width`}>
+    <article className="faq_container">
       <h2 className="heading text-center">Frequently Asked Questions</h2>
 
-      <section className={styles.faq_item}>
+      <section className={item}>
         <h4 className={heading}>When do the workouts update?</h4>
         <p className={paragraph}>Everyday at midnight your local time.</p>
       </section>
 
-      <section className={styles.faq_item}>
+      <section className={item}>
         <h4 className={heading}>What is the current training split?</h4>
         <ul className="list--container-x">
           {listItems.map((item, index) => {
@@ -37,7 +36,7 @@ export function Faqs() {
         </ul>
       </section>
 
-      <section className={styles.faq_item}>
+      <section className={item}>
         <h4 className={heading}>
           What does it mean to train with Furious Intensity?
         </h4>
@@ -48,7 +47,7 @@ export function Faqs() {
         </p>
       </section>
 
-      <section className={styles.faq_item}>
+      <section className={item}>
         <h4 className={heading}>What if I miss a workout?</h4>
         <p className={paragraph}>
           Don&apos;t stress, keep following the daily workouts as planned.
@@ -56,7 +55,7 @@ export function Faqs() {
         </p>
       </section>
 
-      <section className={styles.faq_item}>
+      <section className={item}>
         <h4 className={heading}>
           What if I want to bring my training to the next level?
         </h4>

@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body>
-        <div className="body--wrapper">{children}</div>
+        {children}
         <ToastContainer
           position="top-right"
           autoClose={5000}

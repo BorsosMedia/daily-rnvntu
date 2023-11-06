@@ -191,23 +191,21 @@ export default function Whiteboard({
         <Link href="/dashboard">
           <FaChevronLeft className="icon--sm label--grey" />
         </Link>
-        <button onClick={handleSaveDraft} className="colTwo sign__out-button">
+        <button onClick={handleSaveDraft} className="colTwo sign_out-button">
           <span className="paragraph label--grey">Save Draft</span>
         </button>
-        <button onClick={handlePreview} className="colTwo sign__out-button">
+        <button onClick={handlePreview} className="colTwo sign_out-button">
           <span className="paragraph label--grey">Preview</span>
         </button>
         <button
           onClick={handleCreateRoutine}
-          className="colTwo sign__out-button"
+          className="colTwo sign_out-button"
         >
           <span className="paragraph label--grey">Create Routine</span>
         </button>
       </nav>
       <section className={formItem}>
-        <label htmlFor="date" className="paragraph label--white">
-          Publish Date:
-        </label>
+        <label htmlFor="date">Publish Date:</label>
         <input
           type="date"
           name="date"

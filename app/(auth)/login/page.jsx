@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
-import styles from "./login.module.css";
 import FunctionalButton from "../../../components/FunctionalButton/FunctionalButton";
 import NavigationBar from "../../../components/NavigationBar/NavigationBar";
 import useCheckAuth from "../../../hooks/useCheckAuth";
@@ -25,7 +24,7 @@ export default function Login() {
 
   const handlePasswordVisibility = () => {
     setPasswordVisibility(
-      passwordVisibility === "password" ? "text" : "password"
+      passwordVisibility === "password" ? "text" : "password",
     );
   };
 
@@ -48,92 +47,84 @@ export default function Login() {
   };
 
   return (
-    <main className={styles.main}>
+    <main className="main_register_login">
       <NavigationBar />
-      <div className={styles.register__wrapper}>
-        <h3 className="heading text-center">Log In</h3>
-        <form
-          action=""
-          className={`sm__lg_width v-align-gap-1 form--block-container`}
-        >
-          <div className={styles.form__item}>
-            <label htmlFor="email" className="paragraph label--white">
-              Email
-            </label>
-            <input
-              type="email"
-              placeholder="Please, enter your email"
-              id="email"
-              name="email"
-              value={credentials.email}
-              onChange={handleChange}
-              className={styles.form__input}
-              required
-            />
-          </div>
+      <h3 className="heading text-center">Log In</h3>
+      <form
+        action=""
+        className="sm__lg_width v-align-gap-1 form--block-container"
+      >
+        <div className="form_item">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            placeholder="Please, enter your email"
+            id="email"
+            name="email"
+            value={credentials.email}
+            onChange={handleChange}
+            className="form_input"
+            required
+          />
+        </div>
 
-          <div className={styles.form__item}>
-            <label htmlFor="password" className="paragraph label--white">
-              Password
-            </label>
-            <div className={styles.password_field}>
-              {passwordVisibility === "password" ? (
-                <AiFillEyeInvisible
-                  onClick={handlePasswordVisibility}
-                  className={`${styles.password_visibility} icon--sm`}
-                />
-              ) : (
-                <AiFillEye
-                  onClick={handlePasswordVisibility}
-                  className={`${styles.password_visibility} icon--sm`}
-                />
-              )}
-              <input
-                type={passwordVisibility}
-                placeholder="********"
-                id="password"
-                name="password"
-                onChange={handleChange}
-                className={`${styles.form__input} ${styles.password__input}`}
-                required
-              ></input>
-            </div>
-          </div>
-          <div className={styles.keep_loggedin}>
+        <div className="form_item">
+          <label htmlFor="password">Password</label>
+          <div className="form_password_field">
+            {passwordVisibility === "password" ? (
+              <AiFillEyeInvisible
+                onClick={handlePasswordVisibility}
+                className="form_password_visibility"
+              />
+            ) : (
+              <AiFillEye
+                onClick={handlePasswordVisibility}
+                className="form_password_visibility"
+              />
+            )}
             <input
-              className={styles.checkbox_loggedin}
-              type="checkbox"
-              name="remember"
-              id="remember"
-              onClick={() => {
-                setSession(!session);
-              }}
-            />
-            <label
-              className="text--desc paragraph paragraph--white"
-              htmlFor="remember"
-            >
-              Remember me
-            </label>
+              type={passwordVisibility}
+              placeholder="********"
+              id="password"
+              name="password"
+              onChange={handleChange}
+              className="form_password_input"
+              required
+            ></input>
           </div>
-          <FunctionalButton text="Login" primary={true} cb={signInEmail} />
-        </form>
-        <span className="text--desc text-center paragraph--grey">or</span>
-        <FunctionalButton text="Login With Google" icon={1} cb={signInGoogle} />
-        <p className="text-desc__sm text-center">
-          <Link href="/reset-password" className="paragraph--grey">
-            Forgot your password?
-          </Link>
-        </p>
-      </div>
-      <div>
-        <p className="text-center paragraph paragraph--grey">
-          Don&apos;t have an account?
-          <Link href={"/register"} className="inline paragraph--white">
-            Sign Up
-          </Link>
-        </p>
-      </div>
+        </div>
+        <div className="form_keep_loggedin">
+          <input
+            type="checkbox"
+            name="remember"
+            id="remember"
+            onClick={() => {
+              setSession(!session);
+            }}
+          />
+          <label
+            className="text--desc paragraph paragraph--white"
+            htmlFor="remember"
+          >
+            Remember me
+          </label>
+        </div>
+        <FunctionalButton text="Login" primary={true} cb={signInEmail} />
+      </form>
+      <p className="text--desc text-center paragraph--grey">or</p>
+      <FunctionalButton text="Login With Google" icon={1} cb={signInGoogle} />
+      <p className="text-desc__sm text-center">
+        <Link href="/reset-password" className="paragraph--grey">
+          Forgot your password?
+        </Link>
+      </p>
+
+      <p className="text-center paragraph paragraph--grey">
+        Don&apos;t have an account?
+        <Link href={"/register"} className="inline paragraph--white">
+          Sign Up
+        </Link>
+      </p>
     </main>
   );
 }

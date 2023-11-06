@@ -53,11 +53,11 @@ export default function Preview() {
       <div className={styles.main}>
         <div className="v-align-gap-1">
           <header className="colTwo">
-            <button className="colTwo sign__out-button" onClick={previewAlert}>
+            <button className="colTwo sign_out-button" onClick={previewAlert}>
               <span className="paragraph label--grey">Manage Subscription</span>
             </button>
 
-            <button className="colTwo sign__out-button" onClick={previewAlert}>
+            <button className="colTwo sign_out-button" onClick={previewAlert}>
               <PiSignOutBold className="icon--sm label--grey" />
               <span className="paragraph label--grey">Sign Out</span>
             </button>
@@ -142,7 +142,7 @@ export default function Preview() {
           </div>
         )}
         <CoreTraining />
-        <hr style={{ width: "100%" }} />
+        <hr />
         <Faqs />
         <div className="align-center">
           <Image src={logo} alt="logo" className="logo--sm opacity-2" />

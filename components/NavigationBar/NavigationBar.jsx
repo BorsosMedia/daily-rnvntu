@@ -6,7 +6,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { FaChevronLeft } from "react-icons/fa";
 import { PiSignOutBold } from "react-icons/pi";
 
-import styles from "./navigationBar.module.css";
 import { initFirebase } from "../../lib/utils/firebase";
 import { getPortalUrl } from "../../lib/utils/stripePayment";
 import logo from "../../public/assets/Logo.png";
@@ -36,31 +35,34 @@ export default function NavigationBar({ signedIn }) {
   };
 
   return (
-    <header className={`${styles.main} colTwo`}>
-      <div onClick={handleReturnButton} className={styles.nav__link}>
+    <header className="colTwo">
+      <div onClick={handleReturnButton} className="nav_link">
         <FaChevronLeft className="icon--sm label--grey" />
       </div>
 
-      {pathname === "/routine" &&
-      process.env.NEXT_PUBLIC_SUPPORT_USER === auth.currentUser?.uid ? (
-        <Link
-          className="paragraph label--grey"
-          style={{ textDecoration: "none" }}
-          href="/dashboard"
-        >
-          <button className="colTwo sign__out-button">Dashboard</button>
-        </Link>
+      {pathname === "/routine" ? (
+        process.env.NEXT_PUBLIC_SUPPORT_USER === auth.currentUser?.uid ? (
+          <Link
+            className="paragraph label--grey"
+            style={{ textDecoration: "none" }}
+            href="/dashboard"
+          >
+            <button className="colTwo sign_out-button">Dashboard</button>
+          </Link>
+        ) : (
+          <button
+            className="colTwo sign_out-button"
+            onClick={manageSubscription}
+          >
+            <span className="paragraph label--grey">Manage Subscription</span>
+          </button>
+        )
       ) : (
-        <button
-          className="colTwo sign__out-button"
-          onClick={manageSubscription}
-        >
-          <span className="paragraph label--grey">Manage Subscription</span>
-        </button>
+        ""
       )}
 
       {signedIn ? (
-        <button className="colTwo sign__out-button" onClick={signOut}>
+        <button className="colTwo sign_out-button" onClick={signOut}>
           <PiSignOutBold className="icon--sm label--grey" />
           <span className="paragraph label--grey">Sign Out</span>
         </button>
