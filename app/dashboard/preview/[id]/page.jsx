@@ -14,18 +14,14 @@ import { Faqs } from "../../../../components/Faqs/Faqs";
 import useCheckAuth from "../../../../hooks/useCheckAuth";
 import { getRoutineDisplayDate } from "../../../../lib/utils/getDates";
 import { getRoutineById } from "../../../../lib/utils/routines";
-import Logo from "../../../../public/assets/Logo.png";
+import logo from "../../../../public/assets/Logo.png";
 
 export default function Preview() {
   const isAdmin = useCheckAuth();
 
   const [routine, setRoutine] = useState("");
   const [routineDate, setRoutineDate] = useState("");
-
-  let id = "";
-  if (typeof window !== "undefined") {
-    id = window.location.href.split("/preview/").pop();
-  }
+  const id = window.location.href.split("/preview/").pop();
 
   const getRoutinePreview = async (id) => {
     const data = await getRoutineById(id);
@@ -149,7 +145,7 @@ export default function Preview() {
         <hr style={{ width: "100%" }} />
         <Faqs />
         <div className="align-center">
-          <Image src={Logo} alt="logo" className="logo--sm opacity-2" />
+          <Image src={logo} alt="logo" className="logo--sm opacity-2" />
         </div>
       </div>
     )

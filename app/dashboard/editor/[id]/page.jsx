@@ -12,11 +12,7 @@ export default function Editor() {
     { ssr: false }
   );
   const isAdmin = useCheckAuth();
-
-  let id = "";
-  // if (typeof window !== "undefined") {
-  // }
-  id = window.location.href.split("/editor/").pop();
+  const id = window.location.href.split("/editor/").pop();
 
   return (
     isAdmin && (

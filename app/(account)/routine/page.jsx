@@ -13,7 +13,7 @@ import NavigationBar from "../../../components/NavigationBar/NavigationBar";
 import useCheckAuth from "../../../hooks/useCheckAuth";
 import { getRoutineDisplayDate } from "../../../lib/utils/getDates";
 import { getRoutine } from "../../../lib/utils/routines";
-import Logo from "../../../public/assets/Logo.png";
+import logo from "../../../public/assets/Logo.png";
 
 export default function DailyRoutine() {
   const isPremium = useCheckAuth();
@@ -31,7 +31,7 @@ export default function DailyRoutine() {
     isPremium && (
       <main className={styles.main}>
         <div className="v-align-gap-1">
-          <NavigationBar SignOut={true} />
+          <NavigationBar signedIn={true} />
           <div className="colTwo">
             <div>
               <h4 className="heading">
@@ -115,7 +115,7 @@ export default function DailyRoutine() {
         <hr style={{ width: "100%" }} />
         <Faqs />
         <div className="align-center">
-          <Image src={Logo} alt="logo" className="logo--sm opacity-2" />
+          <Image src={logo} alt="logo" className="logo--sm opacity-2" />
         </div>
       </main>
     )

@@ -146,15 +146,15 @@ export default function Register() {
             )}
           </div>
           <FunctionalButton
-            Text={"Sign Up"}
-            Primary={true}
+            text="Sign Up"
+            primary={true}
             cb={handleSubmit(signUpEmail)}
           />
         </form>
         <span className="text--desc text-center paragraph--grey">or</span>
         <FunctionalButton
-          Text={"Sign Up With Google"}
-          Icon={"1"}
+          text="Sign Up With Google"
+          icon={1}
           cb={signUpGoogle}
         />
       </div>

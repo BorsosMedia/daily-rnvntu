@@ -47,7 +47,7 @@ export default function ResetPassword() {
               required
             />
           </div>
-          <FunctionalButton Text={"Submit"} Primary={true} cb={handleSubmit} />
+          <FunctionalButton text="Submit" primary={true} cb={handleSubmit} />
         </form>
         <span className="text--desc text-center paragraph--grey">or</span>
         <div className="has__account">

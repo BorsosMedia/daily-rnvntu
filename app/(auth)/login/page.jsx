@@ -49,7 +49,7 @@ export default function Login() {
 
   return (
     <main className={styles.main}>
-      <NavigationBar LinkedTo={"/plans"} />
+      <NavigationBar />
       <div className={styles.register__wrapper}>
         <h3 className="heading text-center">Log In</h3>
         <form
@@ -116,14 +116,10 @@ export default function Login() {
               Remember me
             </label>
           </div>
-          <FunctionalButton Text={"Login"} Primary={true} cb={signInEmail} />
+          <FunctionalButton text="Login" primary={true} cb={signInEmail} />
         </form>
         <span className="text--desc text-center paragraph--grey">or</span>
-        <FunctionalButton
-          Text={"Login With Google"}
-          Icon={"1"}
-          cb={signInGoogle}
-        />
+        <FunctionalButton text="Login With Google" icon={1} cb={signInGoogle} />
         <p className="text-desc__sm text-center">
           <Link href="/reset-password" className="paragraph--grey">
             Forgot your password?

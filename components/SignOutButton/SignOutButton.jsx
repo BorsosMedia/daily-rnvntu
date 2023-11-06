@@ -1,5 +1,3 @@
-"use client";
-
 export function SignOutButton({ signOut }) {
   return (
     <button onClick={signOut}>

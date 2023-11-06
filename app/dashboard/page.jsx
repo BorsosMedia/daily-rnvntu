@@ -36,7 +36,7 @@ export default function Dashboard() {
     isAdmin && (
       <main className={styles.main}>
         <nav className="colTwo">
-          <Link href="/daily-routine">
+          <Link href="/routine">
             <FaChevronLeft className="icon--sm label--grey" />
           </Link>
           <Link

@@ -27,12 +27,8 @@ export default function Home() {
           <h5 className="heading">A very srs daily fitness program</h5>
         </div>
         <div className="v-align-gap-1 align-center">
-          <NavigationButton
-            Text={"Sign Up"}
-            Href={"/register"}
-            Primary={true}
-          />
-          <NavigationButton Text={"Login"} Href={"/login"} />
+          <NavigationButton text="Sign Up" to="/register" primary={true} />
+          <NavigationButton text="Login" to="/login" />
           <span className="text--body">DAILY RNVNTU</span>
         </div>
       </div>

@@ -19,7 +19,7 @@ export default function Plans() {
 
   return (
     <main className={styles.main}>
-      <NavigationBar SignOut={true} />
+      <NavigationBar signedIn={true} />
       <div className={`${styles.plan_type__container} sm_sm__lg_width`}>
         <h3 className="heading text-center">Choose Your Plan</h3>
         <div className={styles.plan__card}>

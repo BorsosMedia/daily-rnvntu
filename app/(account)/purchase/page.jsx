@@ -50,7 +50,7 @@ export default function Purchase() {
 
   return (
     <main className={styles.main}>
-      <NavigationBar SignOut={true} />
+      <NavigationBar signedIn={true} />
       <div className={styles.register__wrapper}>
         <h3 className="heading text-center">Add Payment Method</h3>
         <div className="colTwo">
@@ -84,7 +84,7 @@ export default function Purchase() {
               </div>
             );
           })}
-          <FunctionalButton Text={"Purchase"} Primary={true} />
+          <FunctionalButton text="Purchase" primary={true} />
         </form>
       </div>
     </main>

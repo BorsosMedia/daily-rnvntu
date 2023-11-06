@@ -1,21 +1,20 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
 
-import ReturnLogo from "../../public/assets/arrow-left.svg";
+import returnLogo from "../../public/assets/arrow-left.svg";
 
-function NavigationButton({ Text, Icon, Href, Primary }) {
+function NavigationButton({ text, icon, to, primary }) {
   return (
     <Link
-      href={Href || "/daily-routine"}
+      href={to || "/routine"}
       className={
-        Primary ? "primary-button primary-button_red" : "primary-button "
+        primary ? "primary-button primary-button_red" : "primary-button "
       }
     >
-      {Icon === "1" && (
-        <Image src={ReturnLogo} alt={"Return"} className="icon--sm" />
+      {icon === "1" && (
+        <Image src={returnLogo} alt="Return" className="icon--sm" />
       )}
-      <span>{Text}</span>
+      <span>{text}</span>
     </Link>
   );
 }

@@ -11,7 +11,7 @@ export default function FAQ() {
   return (
     isPremium && (
       <main className={styles.main}>
-        <NavigationBar SignOut={true} />
+        <NavigationBar signedIn={true} />
 
         <Faqs />
       </main>
