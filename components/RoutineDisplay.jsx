@@ -4,7 +4,7 @@ import CoreTraining from "./CoreTraining";
 import Faqs from "./Faqs";
 import logo from "../public/assets/Logo.png";
 
-const RoutineLayout = ({ routine }) => {
+const RoutineDisplay = ({ routine }) => {
   return (
     <article>
       {routine?.length > 0 && (
@@ -71,6 +71,7 @@ const RoutineLayout = ({ routine }) => {
           </div>
         </section>
       )}
+      <hr />
       <CoreTraining />
       <hr />
       <Faqs />
@@ -81,4 +82,4 @@ const RoutineLayout = ({ routine }) => {
   );
 };
 
-export default RoutineLayout;
+export default RoutineDisplay;

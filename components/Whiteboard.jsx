@@ -97,8 +97,8 @@ const Whiteboard = ({ id }) => {
   }, [id, setEditor]);
 
   return (
-    <div>
-      <nav className="colTwo">
+    <>
+      <section className="colTwo">
         <Link href="/dashboard">
           <FaChevronLeft className="icon--sm label--grey" />
         </Link>
@@ -134,7 +134,7 @@ const Whiteboard = ({ id }) => {
             {id ? "Update" : "Create"} Routine
           </span>
         </button>
-      </nav>
+      </section>
       <section className="whiteboard_form_item">
         <label htmlFor="date">Publish Date:</label>
         <input
@@ -148,7 +148,7 @@ const Whiteboard = ({ id }) => {
         />
       </section>
       <section id="EditorJs" className="whiteboard" />
-    </div>
+    </>
   );
 };
 

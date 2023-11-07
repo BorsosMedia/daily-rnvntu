@@ -10,7 +10,7 @@ import { initFirebase } from "../lib/utils/firebase";
 import { getPortalUrl } from "../lib/utils/stripePayment";
 import logo from "../public/assets/Logo.png";
 
-const NavigationBar = ({ signedIn }) => {
+const NavigationBar = ({ signedIn, isPreview }) => {
   const app = initFirebase();
   const auth = getAuth(app);
   const router = useRouter();
@@ -35,10 +35,10 @@ const NavigationBar = ({ signedIn }) => {
   };
 
   return (
-    <header className="colTwo">
-      <div onClick={handleReturnButton} className="nav_link">
+    <article className="colTwo">
+      <section onClick={isPreview || handleReturnButton} className="nav_link">
         <FaChevronLeft className="icon--sm label--grey" />
-      </div>
+      </section>
 
       {pathname === "/routine" ? (
         process.env.NEXT_PUBLIC_SUPPORT_USER === auth.currentUser?.uid ? (
@@ -57,19 +57,26 @@ const NavigationBar = ({ signedIn }) => {
             <span className="paragraph label--grey">Manage Subscription</span>
           </button>
         )
+      ) : isPreview ? (
+        <button className="colTwo sign_out-button" onClick={isPreview}>
+          <span className="paragraph label--grey">Manage Subscription</span>
+        </button>
       ) : (
         ""
       )}
 
       {signedIn ? (
-        <button className="colTwo sign_out-button" onClick={signOut}>
+        <button
+          className="colTwo sign_out-button"
+          onClick={isPreview || signOut}
+        >
           <PiSignOutBold className="icon--sm label--grey" />
           <span className="paragraph label--grey">Sign Out</span>
         </button>
       ) : (
         <Image src={logo} alt="logo" className="logo--sm header__logo" />
       )}
-    </header>
+    </article>
   );
 };
 
