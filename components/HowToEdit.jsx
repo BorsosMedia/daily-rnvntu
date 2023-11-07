@@ -1,4 +1,4 @@
-export function HowToEdit() {
+const HowToEdit = () => {
   const paragraph = "paragraph paragraph--white";
   const list = "list--container-x";
   const heading = "heading";
@@ -47,4 +47,6 @@ export function HowToEdit() {
       </ul>
     </article>
   );
-}
+};
+
+export default HowToEdit;

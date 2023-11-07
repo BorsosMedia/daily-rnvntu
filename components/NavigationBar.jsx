@@ -10,7 +10,7 @@ import { initFirebase } from "../lib/utils/firebase";
 import { getPortalUrl } from "../lib/utils/stripePayment";
 import logo from "../public/assets/Logo.png";
 
-export default function NavigationBar({ signedIn }) {
+const NavigationBar = ({ signedIn }) => {
   const app = initFirebase();
   const auth = getAuth(app);
   const router = useRouter();
@@ -71,4 +71,6 @@ export default function NavigationBar({ signedIn }) {
       )}
     </header>
   );
-}
+};
+
+export default NavigationBar;

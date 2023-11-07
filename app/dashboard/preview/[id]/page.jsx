@@ -8,8 +8,8 @@ import { BsQuestionCircleFill } from "react-icons/bs";
 import { PiSignOutBold } from "react-icons/pi";
 import { toast } from "react-toastify";
 
-import { CoreTraining } from "../../../../components/CoreTraining";
-import { Faqs } from "../../../../components/Faqs";
+import CoreTraining from "../../../../components/CoreTraining";
+import Faqs from "../../../../components/Faqs";
 import useCheckAuth from "../../../../hooks/useCheckAuth";
 import { getRoutineDisplayDate } from "../../../../lib/utils/getDates";
 import { getRoutineById } from "../../../../lib/utils/routines";
@@ -17,7 +17,6 @@ import logo from "../../../../public/assets/Logo.png";
 
 export default function Preview() {
   const isAdmin = useCheckAuth();
-
   const [routine, setRoutine] = useState("");
   const [routineDate, setRoutineDate] = useState("");
   const id = window.location.href.split("/preview/").pop();

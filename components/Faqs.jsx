@@ -1,4 +1,4 @@
-export function Faqs() {
+const Faqs = () => {
   const paragraph = "paragraph paragraph--white";
   const heading = "heading";
   const item = "faq_item";
@@ -69,4 +69,6 @@ export function Faqs() {
       </section>
     </article>
   );
-}
+};
+
+export default Faqs;

@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 
-import { HowToEdit } from "../../../components/HowToEdit";
+import HowToEdit from "../../../components/HowToEdit";
 import useCheckAuth from "../../../hooks/useCheckAuth";
 
 export default function Editor() {

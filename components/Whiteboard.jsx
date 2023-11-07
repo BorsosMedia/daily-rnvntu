@@ -16,7 +16,7 @@ import {
   updateRoutine,
 } from "../lib/utils/routines";
 
-export default function Whiteboard({ id }) {
+const Whiteboard = ({ id }) => {
   const router = useRouter();
   const [routineDate, setRoutineDate] = useState("");
   const [editor, setEditor] = useState("");
@@ -150,4 +150,6 @@ export default function Whiteboard({ id }) {
       <section id="EditorJs" className="whiteboard" />
     </div>
   );
-}
+};
+
+export default Whiteboard;

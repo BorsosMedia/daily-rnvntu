@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaChevronLeft, FaTrash } from "react-icons/fa";
 
-import styles from "./dashboard.module.css";
 import useCheckAuth from "../../hooks/useCheckAuth";
 import { deleteRoutine, getRoutineList } from "../../lib/utils/routines";
 
@@ -34,7 +33,7 @@ export default function Dashboard() {
 
   return (
     isAdmin && (
-      <main className={styles.main}>
+      <main className="main_dashboard">
         <nav className="colTwo">
           <Link href="/routine">
             <FaChevronLeft className="icon--sm label--grey" />
@@ -47,24 +46,24 @@ export default function Dashboard() {
             <button className="colTwo sign_out-button">Create Routine</button>
           </Link>
         </nav>
-        <section className={styles.cardsSection}>
+        <section className="cards_section">
           {routines?.map((routine) => (
             <div
               key={routine.id}
-              className={routine.isDraft ? styles.cardDraft : styles.card}
+              className={routine.isDraft ? "card card_draft" : "card"}
             >
               <div
-                className={`${
+                className={
                   routine.isDraft
-                    ? styles.cardDraft_details
-                    : styles.card_details
-                }`}
+                    ? "card_details card_draft_details"
+                    : "card_details"
+                }
               >
-                <p className={styles.text_body}>{routine.publishDate}</p>
+                <p className="card_text_body">{routine.publishDate}</p>
                 {routine.outputData.blocks?.map((block) => {
                   if (block.type === "header" && block.data.level === 1) {
                     return (
-                      <h1 key={block.id} className={styles.text_title}>
+                      <h1 key={block.id} className="card_text_title">
                         {block.data.text}
                       </h1>
                     );
@@ -73,14 +72,14 @@ export default function Dashboard() {
                 })}
               </div>
               <button
-                className={styles.card_button}
+                className="card_button"
                 onClick={() => handleUpdate(routine.id)}
               >
                 Update Routine
               </button>
 
               <FaTrash
-                className={styles.delete_button}
+                className="card_delete_button"
                 onClick={() => {
                   handleDelete(routine.id);
                 }}

@@ -15,7 +15,7 @@ import {
   googleSignUp,
   emailAndPasswordSignUp,
 } from "../../../lib/utils/register";
-import { SignUpSchema } from "../../../lib/utils/schemas/SignUpSchema";
+import SignUpSchema from "../../../lib/utils/schemas/SignUpSchema";
 
 export default function Register() {
   useCheckAuth();

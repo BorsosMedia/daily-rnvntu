@@ -1,4 +1,4 @@
-export function CoreTraining() {
+const CoreTraining = () => {
   const paragraph = "paragraph paragraph--white";
 
   const list = [
@@ -48,4 +48,6 @@ export function CoreTraining() {
       </section>
     </article>
   );
-}
+};
+
+export default CoreTraining;

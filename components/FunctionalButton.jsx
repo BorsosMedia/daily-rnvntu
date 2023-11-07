@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import googleLogo from "../public/assets/google-logo.svg";
 
-function FunctionalButton({ text, primary, icon, cb }) {
+const FunctionalButton = ({ text, primary, icon, cb }) => {
   return (
     <button
       onClick={cb}
@@ -19,5 +19,5 @@ function FunctionalButton({ text, primary, icon, cb }) {
       <span>{text}</span>
     </button>
   );
-}
+};
 export default FunctionalButton;

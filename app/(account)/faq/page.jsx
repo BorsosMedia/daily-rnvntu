@@ -1,6 +1,6 @@
 "use client";
 
-import { Faqs } from "../../../components/Faqs";
+import Faqs from "../../../components/Faqs";
 import NavigationBar from "../../../components/NavigationBar";
 import useCheckAuth from "../../../hooks/useCheckAuth";
 

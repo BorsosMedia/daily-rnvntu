@@ -6,7 +6,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useRouter, usePathname } from "next/navigation";
 
 import { initFirebase } from "../lib/utils/firebase";
-import { getPremiumStatus } from "../lib/utils/getPremiumStatus";
+import getPremiumStatus from "../lib/utils/getPremiumStatus";
 import { freeTrialCheck } from "../lib/utils/stripePayment";
 
 const useCheckAuth = () => {

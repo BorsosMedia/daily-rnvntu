@@ -3,7 +3,6 @@
 import { useRouter } from "next/navigation";
 import { BiRightArrowAlt } from "react-icons/bi";
 
-import styles from "./plans.module.css";
 import NavigationBar from "../../../components/NavigationBar";
 import useCheckAuth from "../../../hooks/useCheckAuth";
 import { getCheckoutUrl } from "../../../lib/utils/stripePayment";
@@ -18,38 +17,38 @@ export default function Plans() {
   };
 
   return (
-    <main className={styles.main}>
+    <main className="main_plans">
       <NavigationBar signedIn={true} />
-      <div className={`${styles.plan_type__container} sm_sm__lg_width`}>
+      <div className="plan_type_container sm_sm__lg_width">
         <h3 className="heading text-center">Choose Your Plan</h3>
-        <div className={styles.plan__card}>
+        <div className="plan_card">
           <h4 className="heading span-price text-center">Monthly</h4>
           <h4 className="heading price__heading text-center">
             <span>$</span>6
           </h4>
 
           <button
-            className={styles.button_container}
+            className="plans_button_container"
             onClick={() =>
               handleCheckout(process.env.NEXT_PUBLIC_STRIPE_MONTHLY_PRICE_ID)
             }
           >
-            <BiRightArrowAlt className={styles.icon__sm} />
+            <BiRightArrowAlt className="plans_icon_sm" />
           </button>
         </div>
-        <div className={`${styles.plan__card} `}>
+        <div className="plan_card">
           <h4 className="heading span-price text-center">Annual</h4>
           <h4 className="heading price__heading text-center">
             <span>$</span>60
           </h4>
 
           <button
-            className={styles.button_container}
+            className="plans_button_container"
             onClick={() =>
               handleCheckout(process.env.NEXT_PUBLIC_STRIPE_ANNUAL_PRICE_ID)
             }
           >
-            <BiRightArrowAlt className={styles.icon__sm} />
+            <BiRightArrowAlt className="plans_icon_sm" />
           </button>
         </div>
 
@@ -57,7 +56,7 @@ export default function Plans() {
           <>
             <p className="text--desc paragraph--grey text-center">or</p>
             <p
-              className={`paragraph paragraph--white text-center text-underline pointer ${styles.trial}`}
+              className="paragraph paragraph--white text-center text-underline pointer plans_trial"
               onClick={() =>
                 handleCheckout(
                   process.env.NEXT_PUBLIC_STRIPE_MONTHLY_TRIAL_PRICE_ID,

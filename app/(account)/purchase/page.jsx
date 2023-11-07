@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { FaStripe } from "react-icons/fa";
 import { ImPaypal } from "react-icons/im";
 
-import styles from "./purchase.module.css";
 import FunctionalButton from "../../../components/FunctionalButton";
 import NavigationBar from "../../../components/NavigationBar";
 import useCheckAuth from "../../../hooks/useCheckAuth";
@@ -49,9 +48,9 @@ export default function Purchase() {
   ];
 
   return (
-    <main className={styles.main}>
+    <main className="main_purchase">
       <NavigationBar signedIn={true} />
-      <div className={styles.register__wrapper}>
+      <div className="purchase_wrapper">
         <h3 className="heading text-center">Add Payment Method</h3>
         <div className="colTwo">
           <button className="form--payment-card" onClick={handleCheckout}>
