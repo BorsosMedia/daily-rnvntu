@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import returnLogo from "../../public/assets/arrow-left.svg";
+import returnLogo from "../public/assets/arrow-left.svg";
 
 function NavigationButton({ text, icon, to, primary }) {
   return (

@@ -6,8 +6,8 @@ import { FaStripe } from "react-icons/fa";
 import { ImPaypal } from "react-icons/im";
 
 import styles from "./purchase.module.css";
-import FunctionalButton from "../../../components/FunctionalButton/FunctionalButton";
-import NavigationBar from "../../../components/NavigationBar/NavigationBar";
+import FunctionalButton from "../../../components/FunctionalButton";
+import NavigationBar from "../../../components/NavigationBar";
 import useCheckAuth from "../../../hooks/useCheckAuth";
 import { getCheckoutUrl } from "../../../lib/utils/stripePayment";
 

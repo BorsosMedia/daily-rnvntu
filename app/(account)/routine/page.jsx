@@ -6,9 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsQuestionCircleFill } from "react-icons/bs";
 
-import { CoreTraining } from "../../../components/CoreTraining/CoreTraining";
-import { Faqs } from "../../../components/Faqs/Faqs";
-import NavigationBar from "../../../components/NavigationBar/NavigationBar";
+import { CoreTraining } from "../../../components/CoreTraining";
+import { Faqs } from "../../../components/Faqs";
+import NavigationBar from "../../../components/NavigationBar";
 import useCheckAuth from "../../../hooks/useCheckAuth";
 import { getRoutineDisplayDate } from "../../../lib/utils/getDates";
 import { getRoutine } from "../../../lib/utils/routines";

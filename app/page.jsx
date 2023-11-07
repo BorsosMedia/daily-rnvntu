@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import NavigationButton from "../components/NavigationButton/NavigationButton";
+import NavigationButton from "../components/NavigationButton";
 import useCheckAuth from "../hooks/useCheckAuth";
 import logo from "../public/assets/Logo.png";
 

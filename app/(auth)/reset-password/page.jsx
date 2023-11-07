@@ -4,8 +4,8 @@ import { useState } from "react";
 
 import Link from "next/link";
 
-import FunctionalButton from "../../../components/FunctionalButton/FunctionalButton";
-import NavigationBar from "../../../components/NavigationBar/NavigationBar";
+import FunctionalButton from "../../../components/FunctionalButton";
+import NavigationBar from "../../../components/NavigationBar";
 import useCheckAuth from "../../../hooks/useCheckAuth";
 import resetPassword from "../../../lib/utils/resetPassword";
 

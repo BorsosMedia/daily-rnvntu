@@ -8,8 +8,8 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
-import FunctionalButton from "../../../components/FunctionalButton/FunctionalButton";
-import NavigationBar from "../../../components/NavigationBar/NavigationBar";
+import FunctionalButton from "../../../components/FunctionalButton";
+import NavigationBar from "../../../components/NavigationBar";
 import useCheckAuth from "../../../hooks/useCheckAuth";
 import {
   googleSignUp,

@@ -44,7 +44,7 @@ export default function Dashboard() {
             className="paragraph label--grey"
             style={{ textDecoration: "none" }}
           >
-            <button className="colTwo sign__out-button">Create Routine</button>
+            <button className="colTwo sign_out-button">Create Routine</button>
           </Link>
         </nav>
         <section className={styles.cardsSection}>

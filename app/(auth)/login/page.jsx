@@ -6,8 +6,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
-import FunctionalButton from "../../../components/FunctionalButton/FunctionalButton";
-import NavigationBar from "../../../components/NavigationBar/NavigationBar";
+import FunctionalButton from "../../../components/FunctionalButton";
+import NavigationBar from "../../../components/NavigationBar";
 import useCheckAuth from "../../../hooks/useCheckAuth";
 import { googleLogin, emailAndPasswordLogin } from "../../../lib/utils/login";
 

@@ -304,7 +304,7 @@ hr {
   display: grid;
   position: relative;
   align-items: baseline;
-  background: url("../../../public/assets/Logo-Opacity.png");
+  background: url("../public/assets/Logo-Opacity.png");
   background-position: center;
   background-size: 90%;
   background-repeat: no-repeat;
@@ -334,13 +334,13 @@ hr {
   gap: 0.75rem;
 }
 
-/* ROUTINE PAGE */
+/* ROUTINE AND PREVIEW PAGES */
 
 .main_routine {
   display: grid;
   align-content: space-between;
   gap: 2rem;
-  background: url("../../../public/assets/GYM\ LOGO\ MALE\ FINAL.png");
+  background: url("../public/assets/GYM\ LOGO\ MALE\ FINAL.png");
   background-position: 500% 105%;
   background-size: 92%;
   background-repeat: no-repeat;
@@ -357,7 +357,79 @@ hr {
   }
 }
 
-/* END OF ROUTINE PAGE */
+/* EDITOR PAGE */
+
+.main_editor {
+  display: grid;
+  align-items: baseline;
+  gap: 2rem;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  max-width: 980px;
+  min-height: inherit;
+}
+
+.editor {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.whiteboard {
+  background-color: white;
+}
+
+.whiteboard_date_picker {
+  transition:
+    box-shadow 200ms,
+    border-color 200ms;
+  box-sizing: content-box;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  background-color: #30354a;
+  padding: 8px 12px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.25;
+  font-family: inherit;
+}
+.whiteboard_date_picker:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.whiteboard_date_picker:focus {
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.8);
+  border-color: transparent;
+}
+.whiteboard_date_picker::placeholder,
+.whiteboard_date_picker::-moz-placeholder {
+  opacity: 1;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.whiteboard_form_item {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 20px 0;
+}
+
+.whiteboard_form_input {
+  outline-color: #d33434;
+  border: none;
+  border-radius: 0.5rem;
+  background: #1f2732;
+  padding: 1.2rem 1rem;
+  width: auto;
+  height: auto;
+  color: #f5f5f5;
+}
+.whiteboard_form_input::placeholder {
+  color: #8a8a8a;
+}
+
+/* END OF EDITOR PAGE */
 
 .opacity-2 {
   opacity: 20%;

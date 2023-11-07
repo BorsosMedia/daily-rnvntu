@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { BiRightArrowAlt } from "react-icons/bi";
 
 import styles from "./plans.module.css";
-import NavigationBar from "../../../components/NavigationBar/NavigationBar";
+import NavigationBar from "../../../components/NavigationBar";
 import useCheckAuth from "../../../hooks/useCheckAuth";
 import { getCheckoutUrl } from "../../../lib/utils/stripePayment";
 
@@ -60,7 +60,7 @@ export default function Plans() {
               className={`paragraph paragraph--white text-center text-underline pointer ${styles.trial}`}
               onClick={() =>
                 handleCheckout(
-                  process.env.NEXT_PUBLIC_STRIPE_MONTHLY_TRIAL_PRICE_ID
+                  process.env.NEXT_PUBLIC_STRIPE_MONTHLY_TRIAL_PRICE_ID,
                 )
               }
             >

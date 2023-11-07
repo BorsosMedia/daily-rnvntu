@@ -6,9 +6,9 @@ import { usePathname, useRouter } from "next/navigation";
 import { FaChevronLeft } from "react-icons/fa";
 import { PiSignOutBold } from "react-icons/pi";
 
-import { initFirebase } from "../../lib/utils/firebase";
-import { getPortalUrl } from "../../lib/utils/stripePayment";
-import logo from "../../public/assets/Logo.png";
+import { initFirebase } from "../lib/utils/firebase";
+import { getPortalUrl } from "../lib/utils/stripePayment";
+import logo from "../public/assets/Logo.png";
 
 export default function NavigationBar({ signedIn }) {
   const app = initFirebase();

@@ -8,9 +8,8 @@ import { BsQuestionCircleFill } from "react-icons/bs";
 import { PiSignOutBold } from "react-icons/pi";
 import { toast } from "react-toastify";
 
-import styles from "./preview.module.css";
-import { CoreTraining } from "../../../../components/CoreTraining/CoreTraining";
-import { Faqs } from "../../../../components/Faqs/Faqs";
+import { CoreTraining } from "../../../../components/CoreTraining";
+import { Faqs } from "../../../../components/Faqs";
 import useCheckAuth from "../../../../hooks/useCheckAuth";
 import { getRoutineDisplayDate } from "../../../../lib/utils/getDates";
 import { getRoutineById } from "../../../../lib/utils/routines";
@@ -50,7 +49,7 @@ export default function Preview() {
 
   return (
     isAdmin && (
-      <div className={styles.main}>
+      <div className="main_routine">
         <div className="v-align-gap-1">
           <header className="colTwo">
             <button className="colTwo sign_out-button" onClick={previewAlert}>
