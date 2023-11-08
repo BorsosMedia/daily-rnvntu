@@ -1,6 +1,6 @@
 const Faqs = () => {
   const paragraph = "paragraph paragraph--white";
-  const heading = "heading";
+  const subheading = "subheading";
   const item = "faq_item";
 
   const listItems = [
@@ -19,12 +19,12 @@ const Faqs = () => {
       <h2 className="heading text-center">Frequently Asked Questions</h2>
 
       <section className={item}>
-        <h4 className={heading}>When do the workouts update?</h4>
+        <h4 className={subheading}>When do the workouts update?</h4>
         <p className={paragraph}>Everyday at midnight your local time.</p>
       </section>
 
       <section className={item}>
-        <h4 className={heading}>What is the current training split?</h4>
+        <h4 className={subheading}>What is the current training split?</h4>
         <ul className="list--container-x">
           {listItems.map((item, index) => {
             return (
@@ -37,7 +37,7 @@ const Faqs = () => {
       </section>
 
       <section className={item}>
-        <h4 className={heading}>
+        <h4 className={subheading}>
           What does it mean to train with Furious Intensity?
         </h4>
         <p className={paragraph}>
@@ -48,7 +48,7 @@ const Faqs = () => {
       </section>
 
       <section className={item}>
-        <h4 className={heading}>What if I miss a workout?</h4>
+        <h4 className={subheading}>What if I miss a workout?</h4>
         <p className={paragraph}>
           Don&apos;t stress, keep following the daily workouts as planned.
           Potentially use one of the program&apos;s rest days to catch up.
@@ -56,7 +56,7 @@ const Faqs = () => {
       </section>
 
       <section className={item}>
-        <h4 className={heading}>
+        <h4 className={subheading}>
           What if I want to bring my training to the next level?
         </h4>
         <p className={paragraph}>

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import NavigationButton from "../components/NavigationButton";
 import useCheckAuth from "../hooks/useCheckAuth";
-import logo from "../public/assets/Logo.png";
+import logo from "../public/assets/logo.png";
 
 export default function Home() {
   useCheckAuth();
@@ -13,7 +13,7 @@ export default function Home() {
     <main className="main_home">
       <header className="colTwo">
         <Image src={logo} alt="logo" className="header__logo" />
-        <h6 className="text--body text--desc">2023 - USA</h6>
+        <h6 className="text--body text--desc">2023 USA</h6>
       </header>
       <section className="v-align-gap-1 align-center">
         <p className="paragraph paragraph--grey">
@@ -22,7 +22,7 @@ export default function Home() {
         <h1 className="heading text-center">
           DAILY <span className="primary-accent setAnimation">RNVNTU</span>
         </h1>
-        <h5 className="heading">A very srs daily fitness program</h5>
+        <h5 className="subheading">A very srs daily fitness program</h5>
       </section>
       <section className="v-align-gap-1 align-center">
         <NavigationButton text="Sign Up" to="/register" primary={true} />

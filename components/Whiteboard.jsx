@@ -100,7 +100,7 @@ const Whiteboard = ({ id }) => {
     <>
       <section className="colTwo">
         <Link href="/dashboard">
-          <FaChevronLeft className="icon--sm label--grey" />
+          <FaChevronLeft className="icon--sm label--white" />
         </Link>
         <button
           onClick={
@@ -110,7 +110,7 @@ const Whiteboard = ({ id }) => {
           }
           className="colTwo sign_out-button"
         >
-          <span className="paragraph label--grey">Save Draft</span>
+          <span className="paragraph label--white">Save Draft</span>
         </button>
         <button
           onClick={
@@ -120,7 +120,7 @@ const Whiteboard = ({ id }) => {
           }
           className="colTwo sign_out-button"
         >
-          <span className="paragraph label--grey">Preview</span>
+          <span className="paragraph label--white">Preview</span>
         </button>
         <button
           onClick={
@@ -130,7 +130,7 @@ const Whiteboard = ({ id }) => {
           }
           className="colTwo sign_out-button"
         >
-          <span className="paragraph label--grey">
+          <span className="paragraph label--white">
             {id ? "Update" : "Create"} Routine
           </span>
         </button>

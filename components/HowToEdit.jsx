@@ -1,11 +1,10 @@
 const HowToEdit = () => {
   const paragraph = "paragraph paragraph--white";
   const list = "list--container-x";
-  const heading = "heading";
 
   return (
     <article>
-      <h2 className={`${heading} text-center`}>How to use editor:</h2>
+      <h2 className="heading text-center">How to use editor:</h2>
       <ol>
         <li className={paragraph}>Click on whiteboard</li>
         <li className={paragraph}>
@@ -28,7 +27,7 @@ const HowToEdit = () => {
           </ul>
         </li>
       </ol>
-      <h3 className={heading}>Notes:</h3>
+      <h3 className="subheading">Notes:</h3>
       <ul className={list}>
         <li className={paragraph}>
           You can add a new element by clicking ENTER once you have finished

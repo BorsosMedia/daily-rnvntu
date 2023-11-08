@@ -36,11 +36,11 @@ export default function Dashboard() {
       <main className="main_dashboard">
         <nav className="colTwo">
           <Link href="/routine">
-            <FaChevronLeft className="icon--sm label--grey" />
+            <FaChevronLeft className="icon--sm label--white" />
           </Link>
           <Link
             href="/dashboard/editor"
-            className="paragraph label--grey"
+            className="paragraph label--white"
             style={{ textDecoration: "none" }}
           >
             <button className="colTwo sign_out-button">Create Routine</button>

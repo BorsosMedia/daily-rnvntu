@@ -27,10 +27,9 @@ const RoutineHeaderDisplay = ({ isPreview = false }) => {
       <article className="colTwo">
         <section>
           <h4 className="heading">
-            FEROCIOUS{" "}
-            <span className="primary-accent setAnimation">INTENSITY</span>
+            DAILY <span className="primary-accent setAnimation">RNVNTU</span>
           </h4>
-          <h5 className="heading">{isPreview || getRoutineDisplayDate()}</h5>
+          <h5 className="subheading">{isPreview || getRoutineDisplayDate()}</h5>
         </section>
         <section>
           <Link

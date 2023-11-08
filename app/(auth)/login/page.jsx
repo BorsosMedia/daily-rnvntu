@@ -49,7 +49,7 @@ export default function Login() {
   return (
     <main className="main_register_login">
       <NavigationBar />
-      <h3 className="heading text-center">Log In</h3>
+      <h3 className="heading text-center">Login</h3>
       <form
         action=""
         className="sm__lg_width v-align-gap-1 form--block-container"
@@ -119,7 +119,7 @@ export default function Login() {
         </Link>
       </p>
 
-      <p className="text-center paragraph paragraph--grey">
+      <p className="text-center paragraph paragraph--white">
         Don&apos;t have an account?
         <Link href={"/register"} className="inline paragraph--white">
           Sign Up

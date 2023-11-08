@@ -23,9 +23,7 @@ export default function Plans() {
         <h3 className="heading text-center">Choose Your Plan</h3>
         <div className="plan_card">
           <h4 className="heading span-price text-center">Monthly</h4>
-          <h4 className="heading price__heading text-center">
-            <span>$</span>6
-          </h4>
+          <h4 className="subheading price_heading text-center">$6</h4>
 
           <button
             className="plans_button_container"
@@ -38,9 +36,7 @@ export default function Plans() {
         </div>
         <div className="plan_card">
           <h4 className="heading span-price text-center">Annual</h4>
-          <h4 className="heading price__heading text-center">
-            <span>$</span>60
-          </h4>
+          <h4 className="subheading price_heading text-center">$60</h4>
 
           <button
             className="plans_button_container"

@@ -8,7 +8,7 @@ import { PiSignOutBold } from "react-icons/pi";
 
 import { initFirebase } from "../lib/utils/firebase";
 import { getPortalUrl } from "../lib/utils/stripePayment";
-import logo from "../public/assets/Logo.png";
+import logo from "../public/assets/logo.png";
 
 const NavigationBar = ({ signedIn, isPreview }) => {
   const app = initFirebase();
@@ -37,13 +37,13 @@ const NavigationBar = ({ signedIn, isPreview }) => {
   return (
     <article className="colTwo">
       <section onClick={isPreview || handleReturnButton} className="nav_link">
-        <FaChevronLeft className="icon--sm label--grey" />
+        <FaChevronLeft className="icon--sm" />
       </section>
 
       {pathname === "/routine" ? (
         process.env.NEXT_PUBLIC_SUPPORT_USER === auth.currentUser?.uid ? (
           <Link
-            className="paragraph label--grey"
+            className="paragraph label--white"
             style={{ textDecoration: "none" }}
             href="/dashboard"
           >
@@ -54,12 +54,12 @@ const NavigationBar = ({ signedIn, isPreview }) => {
             className="colTwo sign_out-button"
             onClick={manageSubscription}
           >
-            <span className="paragraph label--grey">Manage Subscription</span>
+            <span className="paragraph label--white">Manage Subscription</span>
           </button>
         )
       ) : isPreview ? (
         <button className="colTwo sign_out-button" onClick={isPreview}>
-          <span className="paragraph label--grey">Manage Subscription</span>
+          <span className="paragraph label--white">Manage Subscription</span>
         </button>
       ) : (
         ""
@@ -70,8 +70,8 @@ const NavigationBar = ({ signedIn, isPreview }) => {
           className="colTwo sign_out-button"
           onClick={isPreview || signOut}
         >
-          <PiSignOutBold className="icon--sm label--grey" />
-          <span className="paragraph label--grey">Sign Out</span>
+          <PiSignOutBold className="icon--sm label--white" />
+          <span className="paragraph label--white">Sign Out</span>
         </button>
       ) : (
         <Image src={logo} alt="logo" className="logo--sm header__logo" />

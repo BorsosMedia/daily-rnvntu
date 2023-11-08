@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import CoreTraining from "./CoreTraining";
 import Faqs from "./Faqs";
-import logo from "../public/assets/Logo.png";
+import logo from "../public/assets/logo.png";
 
 const RoutineDisplay = ({ routine }) => {
   return (
@@ -37,7 +37,7 @@ const RoutineDisplay = ({ routine }) => {
                       );
                     case 3:
                       return (
-                        <h3 key={block.id} className="heading text-center">
+                        <h3 key={block.id} className="subheading text-center">
                           {block.data.text}
                         </h3>
                       );

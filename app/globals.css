@@ -1,36 +1,56 @@
 /* IMPORTS */
 
 @font-face {
-  src: url("../public/fonts/agencyFB.ttf") format("truetype");
-  font-family: Agency FB;
-}
-@font-face {
-  font-weight: 400;
-  src: local("Arial Narrow");
-  src: url("../public/fonts/Arial\ Narrow.woff2") format("woff2");
-  font-family: "Arial Narrow";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../public/fonts/Fontspring-DEMO-organetto-semiexpultrabold.otf")
+    format(opentype);
+  font-family: "Organetto";
 }
 
 @font-face {
-  font-weight: bold;
-  src: local("Arial Narrow Bold");
-  src: url("../public/fonts/Arial\ Narrow\ Bold.woff2") format("woff2");
-  font-family: "Arial Narrow Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../public/fonts/Mortend-Regular.otf") format(opentype);
+  font-family: "Mortend";
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: normal;
+  src: url("../public/fonts/Oswald-Regular.ttf") format(truetype);
+  font-family: "Oswald";
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: normal;
+  src: url("../public/fonts/ArticulatCF-Regular.otf") format(opentype);
+  font-family: "Articulat";
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: normal;
+  src: url("../public/fonts/Poppins-Regular.ttf") format(truetype);
+  font-family: "Poppins";
 }
 
 /* VARIABLES */
 
 :root {
   font-size: 16px;
-  --primary-color: #d33434;
-  --secondary-color: #1f2732;
-  --background-color: #172028;
+  --primary-color: #00aeef;
+  --secondary-color: #dd4398;
+  --background-color: #181818;
   --black-color: #181818;
   --grey-color: #8a8a8a;
   --white-color: #ffffff;
   --button-radius: 0.5rem;
-  --headline-font: "agency fb", Agency FB, Helvetica, sans-serif;
-  --main-font: "arial-narrow", arial-narrow, Arial, Helvetica, sans-serif;
+  --headline-font: "Organetto", Organetto, Helvetica, sans-serif;
+  --subheadline-font: "Oswald", Oswald, Helvetica, sans-serif;
+  --main-font: "Articulat", Articulat, Arial, Helvetica, sans-serif;
+  --error-color: #d33434;
 }
 
 /* GENERAL AND BASIC STYLING FOR TAGS */
@@ -60,7 +80,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: var(--secondary-color);
+  background: var(--grey-color);
 }
 
 body::-webkit-scrollbar-thumb,
@@ -154,8 +174,8 @@ a.primary-button {
 
 @media screen and (min-width: 980px) {
   .logo--sm.header__logo {
-    width: 3.7rem;
-    height: 3.7rem;
+    width: 5rem;
+    height: auto;
   }
 }
 
@@ -218,11 +238,13 @@ a.primary-button {
 .heading {
   color: var(--white-color);
   font-weight: 400;
-  font-family:
-    "agency fb",
-    Agency FB,
-    Helvetica,
-    sans-serif;
+  font-family: var(--headline-font);
+}
+
+.subheading {
+  color: var(--white-color);
+  font-weight: 400;
+  font-family: var(--subheadline-font);
 }
 
 .text--body {
@@ -239,11 +261,11 @@ a.primary-button {
 }
 
 .paragraph--white {
-  color: #dcdcdc;
+  color: var(--white-color);
 }
 
-.label--grey {
-  color: #dcdcdc;
+.label--white {
+  color: var(--white-color);
 }
 
 .paragraph--grey {
@@ -302,7 +324,7 @@ a.primary-button {
 .primary-accent {
   transition: color 1500ms linear;
   will-change: contents;
-  color: #f5f5f5;
+  color: var(--primary-color);
 }
 .primary-accent.setAnimation {
   color: var(--primary-color);
@@ -356,19 +378,8 @@ a.primary-button {
   margin-top: 2rem;
 }
 
-.price__heading {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  font-weight: 800;
+.price_heading {
   font-size: 4rem;
-}
-
-.price__heading span {
-  margin-top: 8px;
-  margin-right: 0.4rem;
-  font-weight: 400;
-  font-size: 1.5rem;
 }
 
 .text-underline {
@@ -392,9 +403,9 @@ a.primary-button {
 .form--payment-card {
   display: grid;
   place-content: center;
-  border: 1px solid var(--grey-color);
+  border: 1px solid var(--primary-color);
   border-radius: var(--button-radius);
-  background-color: #1f2732;
+  background-color: var(--primary-color);
   padding: 0.5rem;
   width: 50%;
 }
@@ -417,20 +428,20 @@ a.primary-button {
 /* LOGOS AND ICONS */
 
 .logo--sm {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 4rem;
+  height: auto;
 }
 
 .header__logo {
-  width: 3rem;
-  height: 3rem;
+  width: 4.5rem;
+  height: auto;
 }
 
 .icon--sm {
   cursor: pointer;
   width: 1.2rem;
   height: 1.2rem;
-  color: var(--grey-color);
+  color: var(--white-color);
 }
 
 .icon--m {
@@ -440,7 +451,7 @@ a.primary-button {
 }
 
 .payment--form-icon {
-  color: var(--grey-color);
+  color: var(--white-color);
 }
 .stripe--logo {
   width: auto;
@@ -466,7 +477,7 @@ a.primary-button {
   cursor: pointer;
   box-shadow: none;
   border: none;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   padding: 1rem;
   width: initial;
   max-width: initial;
@@ -550,11 +561,11 @@ a.primary-button {
   outline-color: var(--primary-color);
   border: none;
   border-radius: var(--button-radius);
-  background: var(--secondary-color);
+  background: var(--white-color);
   padding: 1.2rem 1rem;
   width: 100%;
   max-width: 100%;
-  color: var(--white-color);
+  color: var(--black-color);
 }
 
 .form_input::placeholder {
@@ -569,11 +580,11 @@ a.primary-button {
   outline-color: var(--primary-color);
   border: none;
   border-radius: var(--button-radius);
-  background: var(--secondary-color);
+  background: var(--white-color);
   padding-right: 3rem;
   padding: 1.2rem 1rem;
   width: 100%;
-  color: var(--white-color);
+  color: var(--black-color);
 }
 .form_password_visibility {
   position: absolute;
@@ -587,7 +598,7 @@ a.primary-button {
 }
 
 .form_error {
-  color: var(--primary-color);
+  color: var(--error-color);
 }
 
 .form_keep_loggedin {
@@ -596,6 +607,10 @@ a.primary-button {
   gap: 1rem;
   margin: 0;
   height: initial;
+}
+
+.form_keep_loggedin input:checked:before {
+  background-color: var(--primary-color);
 }
 
 @media screen and (min-width: 768px) {
@@ -629,9 +644,9 @@ a.primary-button {
   position: relative;
   justify-content: center;
   gap: 0.5rem;
-  box-shadow: 0px 3px 0px 2px rgb(131 131 131 / 20%);
+  box-shadow: 0px 3px 0px 2px rgb(138 138 138 / 20%);
   border-radius: 0.4rem;
-  background-color: #1f2732;
+  background-color: var(--primary-color);
   padding: 1rem;
 }
 
@@ -642,7 +657,7 @@ a.primary-button {
   transform: translateY(-50%);
   border: none;
   border-radius: 50%;
-  background: #d33434;
+  background: var(--secondary-color);
   padding: 0;
   width: 2.8rem;
   height: 2.8rem;
@@ -650,7 +665,7 @@ a.primary-button {
 .plans_icon_sm {
   width: 2rem;
   height: 2rem;
-  color: white !important;
+  color: var(--white-color) !important;
 }
 
 .plans_icon_sm:hover {
@@ -663,7 +678,7 @@ a.primary-button {
 }
 
 .plans_trial:hover {
-  color: #d33434;
+  color: var(--secondary-color);
 }
 
 @keyframes wobble {
@@ -782,7 +797,7 @@ a.primary-button {
 }
 
 .whiteboard {
-  background-color: white;
+  background-color: var(--white-color);
 }
 
 .whiteboard_date_picker {
@@ -793,9 +808,9 @@ a.primary-button {
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-  background-color: #30354a;
+  background-color: var(--primary-color);
   padding: 8px 12px;
-  color: #fff;
+  color: var(--white-color);
   font-size: 14px;
   line-height: 1.25;
   font-family: inherit;
@@ -822,17 +837,18 @@ a.primary-button {
 }
 
 .whiteboard_form_input {
-  outline-color: #d33434;
+  outline-color: var(--primary-color);
   border: none;
   border-radius: 0.5rem;
-  background: #1f2732;
+  background: var(--primary-color);
   padding: 1.2rem 1rem;
   width: auto;
   height: auto;
-  color: #f5f5f5;
+  color: var(--white-color);
+  fill: var(--white-color);
 }
 .whiteboard_form_input::placeholder {
-  color: #8a8a8a;
+  color: var(--grey-color);
 }
 
 /* DASHBOARD PAGE */
@@ -858,9 +874,9 @@ a.primary-button {
   position: relative;
   transition: 0.5s ease-out;
   margin: 4rem 3rem;
-  border: 2px solid #c3c6ce;
+  border: 2px solid var(--white-color);
   border-radius: 20px;
-  background: #f5f5f5;
+  background: var(--white-color);
   padding: 1.8rem;
   width: 190px;
   height: 254px;
@@ -872,16 +888,17 @@ a.primary-button {
   place-content: center;
   gap: 0.5em;
   height: 100%;
-  color: black;
+  color: var(--black-color);
+  font-family: var(--subheadline-font);
   text-align: center;
 }
 
 .card_draft {
-  background: #1f2732;
+  background: var(--black-color);
 }
 
 .card_draft_details {
-  color: #fff;
+  color: var(--white-color);
 }
 
 .card_button {
@@ -893,10 +910,10 @@ a.primary-button {
   transition: 0.3s ease-out;
   border: none;
   border-radius: 1rem;
-  background-color: #d33434;
+  background-color: var(--error-color);
   padding: 0.5rem 1rem;
   width: 60%;
-  color: #fff;
+  color: var(--white-color);
   font-size: 1rem;
 }
 
@@ -905,13 +922,12 @@ a.primary-button {
 }
 
 .card_text_title {
-  font-weight: bold;
   font-size: 1.5em;
 }
 
 .card:hover {
   box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
-  border-color: #d33434;
+  border-color: var(--error-color);
 }
 
 .card:hover .card_button {
@@ -921,7 +937,7 @@ a.primary-button {
 
 .card_delete_button {
   position: absolute;
-  fill: #d33434;
+  fill: var(--error-color);
   top: 20px;
   right: 20px;
   transition: all 300ms ease-in-out;
