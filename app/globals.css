@@ -361,6 +361,8 @@ a.primary-button {
 .list--container-x li::before,
 .list--container-x- li::before {
   display: block;
+  filter: invert(55%) sepia(43%) saturate(5574%) hue-rotate(299deg)
+    brightness(87%) contrast(100%);
   margin-right: 1rem;
   background: url("../public/assets/list-style.png");
   background-position: center;
