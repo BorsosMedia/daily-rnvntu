@@ -5,7 +5,7 @@ const CoreTraining = () => {
     {
       item: "Dead Stop Hanging Leg Raises",
       paragraph:
-        "Aim for 25 Reps. If you are unable to perform this, that&apos;s okay. Continue to do so every week until you eventually are. Just do 1 set of this to all out failure focusing on form and the cues I gave you above.",
+        "Aim for 25 Reps. If you are unable to perform this, that's okay. Continue to do so every week until you eventually are. Just do 1 set of this to all out failure focusing on form and the cues I gave you above.",
     },
     {
       item: "Standing Rope Crunch",
