@@ -22,7 +22,7 @@ const CoreTraining = () => {
   return (
     <article className="sm__lg_width">
       <section className="v-align-gap-1">
-        <h2 className="heading text-center m-top-2 v-align-gap-1">
+        <h2 className="heading text-center m-top-2 v-align-gap-1 primary-accent">
           Core Training
         </h2>
         <p className={paragraph}>

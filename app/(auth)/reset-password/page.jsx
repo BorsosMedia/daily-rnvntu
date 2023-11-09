@@ -48,7 +48,7 @@ export default function ResetPassword() {
       <span className="text--desc text-center paragraph--grey">or</span>
 
       <p className="paragraph paragraph--grey text-center">
-        <Link href={"/login"} className="inline paragraph--white">
+        <Link href={"/login"} className="inline">
           Login
         </Link>
       </p>

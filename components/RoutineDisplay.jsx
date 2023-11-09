@@ -22,7 +22,10 @@ const RoutineDisplay = ({ routine }) => {
                   switch (block.data.level) {
                     case 1:
                       return (
-                        <h1 key={block.id} className="heading text-center">
+                        <h1
+                          key={block.id}
+                          className="heading text-center primary-accent"
+                        >
                           {block.data.text}
                         </h1>
                       );
@@ -30,7 +33,7 @@ const RoutineDisplay = ({ routine }) => {
                       return (
                         <h2
                           key={block.id}
-                          className="heading text-center m-top-2 v-align-gap-1"
+                          className="heading text-center m-top-2 v-align-gap-1 primary-accent"
                         >
                           {block.data.text}
                         </h2>

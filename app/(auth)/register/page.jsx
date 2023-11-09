@@ -149,7 +149,7 @@ export default function Register() {
       <div className="has__account">
         <p className="paragraph paragraph--grey text-center">
           Already have an account?{" "}
-          <Link href={"/login"} className="inline paragraph--white">
+          <Link href={"/login"} className="inline">
             Sign In
           </Link>
         </p>

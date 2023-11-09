@@ -141,6 +141,10 @@ hr {
   width: 100%;
 }
 
+a {
+  color: var(--primary-color);
+}
+
 p,
 li,
 .primary-button span,
@@ -484,6 +488,7 @@ a.primary-button {
   width: initial;
   max-width: initial;
   color: inherit;
+  font-family: var(--subheadline-font);
 }
 
 /* HOME PAGE */
@@ -727,7 +732,7 @@ a.primary-button {
   display: grid;
   position: relative;
   align-items: baseline;
-  background: url("../public/assets/Logo-Opacity.png");
+  background-image: url("../public/assets/logo-with-opacity.png");
   background-position: center;
   background-size: 90%;
   background-repeat: no-repeat;
@@ -828,6 +833,10 @@ a.primary-button {
 .whiteboard_date_picker::-moz-placeholder {
   opacity: 1;
   color: rgba(255, 255, 255, 0.6);
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
 }
 
 .whiteboard_form_item {

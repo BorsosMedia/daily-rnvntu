@@ -71,7 +71,7 @@ const NavigationBar = ({ signedIn, isPreview }) => {
           onClick={isPreview || signOut}
         >
           <PiSignOutBold className="icon--sm label--white" />
-          <span className="paragraph label--white">Sign Out</span>
+          <span className="label--white">Sign Out</span>
         </button>
       ) : (
         <Image src={logo} alt="logo" className="logo--sm header__logo" />

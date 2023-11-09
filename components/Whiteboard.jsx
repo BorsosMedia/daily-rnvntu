@@ -110,7 +110,7 @@ const Whiteboard = ({ id }) => {
           }
           className="colTwo sign_out-button"
         >
-          <span className="paragraph label--white">Save Draft</span>
+          <span className="label--white">Save Draft</span>
         </button>
         <button
           onClick={
@@ -120,7 +120,7 @@ const Whiteboard = ({ id }) => {
           }
           className="colTwo sign_out-button"
         >
-          <span className="paragraph label--white">Preview</span>
+          <span className="label--white">Preview</span>
         </button>
         <button
           onClick={
@@ -130,7 +130,7 @@ const Whiteboard = ({ id }) => {
           }
           className="colTwo sign_out-button"
         >
-          <span className="paragraph label--white">
+          <span className="label--white">
             {id ? "Update" : "Create"} Routine
           </span>
         </button>

@@ -16,7 +16,9 @@ const Faqs = () => {
 
   return (
     <article className="faq_container">
-      <h2 className="heading text-center">Frequently Asked Questions</h2>
+      <h2 className="heading text-center primary-accent">
+        Frequently Asked Questions
+      </h2>
 
       <section className={item}>
         <h4 className={subheading}>When do the workouts update?</h4>
@@ -61,10 +63,7 @@ const Faqs = () => {
         </h4>
         <p className={paragraph}>
           I have a full coaching program that you can check out at{" "}
-          <a href="https://effercoaching.com" className={paragraph}>
-            effercoaching.com
-          </a>
-          .
+          <a href="https://effercoaching.com">effercoaching.com</a>.
         </p>
       </section>
     </article>

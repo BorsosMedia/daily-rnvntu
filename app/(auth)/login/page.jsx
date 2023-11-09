@@ -121,7 +121,7 @@ export default function Login() {
 
       <p className="text-center paragraph paragraph--white">
         Don&apos;t have an account?
-        <Link href={"/register"} className="inline paragraph--white">
+        <Link href={"/register"} className="inline">
           Sign Up
         </Link>
       </p>
