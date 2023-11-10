@@ -9,7 +9,10 @@ const RoutineDisplay = ({ routine }) => {
     <article>
       {routine?.length > 0 && (
         <section className="sm__lg_width">
-          <div className="v-align-gap-1 m-top-5">
+          <div
+            className="v-align-gap-1 m-top-1-5"
+            style={{ overflowWrap: "anywhere" }}
+          >
             {routine[0]?.outputData?.blocks?.map((block) => {
               switch (block.type) {
                 case "paragraph":
@@ -24,7 +27,7 @@ const RoutineDisplay = ({ routine }) => {
                       return (
                         <h1
                           key={block.id}
-                          className="heading text-center primary-accent"
+                          className="heading text-center m-top-2 v-align-gap-1 primary-accent"
                         >
                           {block.data.text}
                         </h1>
@@ -40,7 +43,10 @@ const RoutineDisplay = ({ routine }) => {
                       );
                     case 3:
                       return (
-                        <h3 key={block.id} className="subheading text-center">
+                        <h3
+                          key={block.id}
+                          className="subheading text-center v-align-gap-1 "
+                        >
                           {block.data.text}
                         </h3>
                       );

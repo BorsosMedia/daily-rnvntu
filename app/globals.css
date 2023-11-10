@@ -736,6 +736,7 @@ a.primary-button {
   background-size: 90%;
   background-repeat: no-repeat;
   padding: 1rem 2rem;
+  max-width: 980px;
   min-height: inherit;
 }
 
@@ -766,12 +767,14 @@ a.primary-button {
 .main_routine {
   display: grid;
   align-content: space-between;
+  align-items: baseline;
   gap: 2rem;
   background: url("../public/assets/routine.png");
   background-position: 500% 105%;
   background-size: 92%;
   background-repeat: no-repeat;
   padding: 1rem 2rem;
+  max-width: 980px;
   min-height: inherit;
 }
 
