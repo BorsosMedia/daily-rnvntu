@@ -359,6 +359,7 @@ a.primary-button {
 .list--container-x- li {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
   list-style: none;
 }
 
