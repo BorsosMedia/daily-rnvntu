@@ -371,7 +371,7 @@ a.primary-button {
   background-position: center;
   background-size: 1.2rem;
   background-repeat: no-repeat;
-  width: 1.5rem;
+  min-width: 1.5rem;
   height: 1.5rem;
   content: "";
 }
