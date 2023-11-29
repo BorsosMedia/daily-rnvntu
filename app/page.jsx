@@ -13,7 +13,6 @@ export default function Home() {
     <main className="main_home">
       <header className="colTwo">
         <Image src={logo} alt="logo" className="header__logo" />
-        <h6 className="text--body text--desc">FL, USA 2023</h6>
       </header>
       <section className="v-align-gap-1 align-center">
         <p className="paragraph paragraph--grey">

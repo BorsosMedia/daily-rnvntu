@@ -496,7 +496,7 @@ a.primary-button {
   display: grid;
   align-content: space-between;
   gap: 2rem;
-  background: url("../public/assets/home.png");
+  background: url("../public/assets/routine.png");
   background-position: 65%;
   background-size: 630px;
   background-repeat: no-repeat;
